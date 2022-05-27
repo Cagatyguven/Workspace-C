@@ -1,0 +1,100 @@
+                        1)YORUM SATIRLARI(COMMENT LİNES)
+                    --------------------------------------
++Comment out: "Kodun belli bir kısmını yorum satırına alıp iptal etmek."
++global variable definitions, functions definitions, external functions definitions gibi tanıtım yorum satırları yazıyoruz.
+                        
+--------------***************************************************-----------------------------------------------------------------------------------------------------------------
+Near jump->fonksiyon içinde sıçrama
+Long jump-> main->f1->f2->f3
+            f3'den kod akışı birden f1e döndü diyelim buna long jump deniyor.
++Jump yapmamızı sağlayan araçlar var bunlarda birisi "go to" deyimi
+
+                            2)GO TO KONTROL DEYİMİ
+                    ---------------------------------------
++Local Jump yapmamızı sağlar.
++goto deyiminin devamında bir isim olmak zorunda.
+    örnek: goto out;
++Bu goto deyimine gelindiğinde goto deyimindeki isimin kullanıldığı yere yönlendiriliyor.
+    örnek:
+        if (expr)
+            goto out;
+        statement1;
+        statement2;
+        statement3;
+        out:
+            statement4;
+    + Burada if içine girilirse statement1,2,3 atlanır direkt 4'e geçilir.
++Bu out etiketi illa goto'nun aşağaısında olmak zorunda değil yukarısında da olabilir
+
+                            3)SWITCH KONTROL DEYİMİ
+                    ---------------------------------------
+-Bazı else if deyimine alternatif
+-Kodun daha okunabilir ve yazmasını sağlar. Derleyicinin daha etkin bir kod oluşturmasını sağlar.
+  
+-switch(integer expr) şeklinde syntax kuralı var. İçerideki ifade int ve char olmak zorunda
+-switch(integer expr){
+    case 1:
+        statement1;
+    case 2:
+        statement2;
+    .
+    . 
+}
++ case labelı kullanılır.
++switch içindeki sayı neyse case *'e yönlendirme yapılıyor
++switch(int 5)
+{
+    case 1:
+        statement1;
+    ...
+    ...
+    case 5:         + Buraya yönlendiriliyor.
+        statement5;
+        break;       + statement gerçekleştirilecek daha sonra break ile switchten çıkılacak
+    ...
+    ...
+}
+                    
++Default diye bir case türü var. Bunun yanında bir ifade yazmıyoruz.
++Default if-elseif-else merdivenindeki else gibi. Hiç bir case gerçekleşmezse defaulltaki statement gerçekleşir.
++Default en sona yazılmak zorunda değil. En başa da , ortaya da yazılabilir.
+
+
+
+
+
+RASTGELE SAYI
+TÜR DÖNÜŞÜMLERİ
+DİZİLERİ
+YAZI İŞLEMLERİ
+POİNTERLAR
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
++Label(etiket)'den sonra bir deyim gelmek zorunda.
+    örneğin: 
+            void functions()
+            {
+                    goto out;
+            out:
+                statement;
+            }
++etiketler özel bir scope kullanıyor.Buna function scope deniyor.
++yukarıdaki örnekte out ifadesi goto intialize'ından öncede sonrada aranacak.

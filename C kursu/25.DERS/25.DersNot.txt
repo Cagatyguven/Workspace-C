@@ -1,0 +1,18 @@
+                                 1)DATA STRUCTURE
+                            -------------------------
+1)A) FIXED ARRAY
+------------------------------
+-"Array Decay": Dizi dizi olma  özelliğini kaybediyor,bir adrese dönüşüyor.(dizinin ilk elemanının adresine)
+
+-Dizilere ilk değer verme: int a[2]= {5,10}; şeklinde ilk değer verilir.afdad
+-Dizinin boyutundan daha az ilk değer verirsem,ilk baştan o sayı kadar değer verilmiş olur.
+     Örnek: int a[5]= {2,4,5}; yaparsak, a[0]=2,a[1]=4,a[2]=5 ,a[3] ve a[4]=0 değeri alır. Çünkü son iki öğeye değer atamadık
+
+-int a[5] = { 1 , 2 , 3 ,  } şeklinde en son boş virgül bırakılısa  "trailing comma" denir.
+
+-int a[]  = { 1 , 2 , 3 } şeklinde yazılırsa bu syntax hatası değildir. ilk atamada kullanılan eleman sayısı kadar array yaratırlır derleyici tarafından.
+
+-int x=5;
+ int a[x]; 'hatalıdır'. Bunun yerine '#define  X   5' kullanılmalı.
+
+-int a[7] = { [5] = 27 , [4] = 44 , [1] = 3333 } şeklinde belli değerlere değer ataması yapabiliyoruz.

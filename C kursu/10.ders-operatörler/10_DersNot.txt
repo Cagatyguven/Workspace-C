@@ -1,0 +1,90 @@
+                        OPERATÖRLER       
+                Operator(operatör, işleçi)
+
+!,~,++,==,>>=,sizeof gibi gibi şeyler operatördür 
+
+operand: operatörün işleme soktuğu ifadelere operand denir.
+
+örnek: a > b deki > operatördür. a ve b ise operanddır.
+
+1)    Operator Türleri    
+a) unary Operator: 1 terimli operatör.
+b) binary Operator: 2 terimli operatör.
+c) ternary Operator: 3 terimli operatör.(bir tane ternary operatör vardır.)
+
+
+2)    Operatörün Konumu  
+a + b  --> infix konum
+!x     --> prefix konum
+y++    --> postfix konum
+
+--------------------------------
+  Örnekler;
+a + b --> binary infix operatör
+y++   --> unary postfix operatör
+---------------------------------
+
+
+3)   Operatörlerin Öncelik Seviyesi    
+
+-45 operatör var ve bunları 15 sınıfa ayırabiliyoruz.
+
+1.sınıf)       ()     []      .        ->                
+2.sınıf)  // sağdan sola    (+  - işaret)  !        sizeof        ~     (type)  &   *   ++   --
+3.sınıf)        *       /       %
+4.sınıf)        +       -
+5.sınıf)        >>     <<
+6.sınıf)        >       <      <=      =>
+7.sınıf)        ==      !=
+8.sınıf)        &
+9.sınıf)        ^
+10.sınıf)       |	
+11.sınıf)       &&
+12.sınıf)       ||
+13.sınıf)  // sağdan sola      ?       :
+14.sınıf)  // sağdan sola      =        +=   -=     *=    &=   |=    /=    >>=   <<=
+15.sınıf)       ,
+
+-Aynı tokenlar  farklı operatör olarak kullanılıyor.
+-En basitinden + operatörü hem işaret hem toplama için kullanılıyor.
+
++ Öncelik yönü vardır. Buna associativity denir
+    - Right associativity
+    - Left  associativity
+
++ Side Effect(yan etki)
+    - Değişkeni etkileyip etkilemediği
+    - Örnek: 
+             !x (lojik değil operatörü) yan etkisi yoktur.
+             ++x ise yan etkisi var. X'in değeri sürekli artıyor.
+
++  Value Category
+    - L/R value expression 
+
+
+
+4)   İşlem Türlerine Göre Operatörler  
+
+a) Arithmetic Operators
+b) Relational(comparison) Operators
+c) Logical Operators
+d) Bitwise Operators (Bitsel operatörler)
+e) Pointer Operators
+f) Other Operators 
+ 
+
+
+++x ve x++ neden ayrı ayrı var ikisi de aynı işe yarıyor?
+    
+int y= 10;
+func(y++) dediğimizde y'nin normal değeri ile çağırıyoruz 
+yani 10 değeri ile
+
+func(++y) dediğimizde y'yi bir arttırıp fonksiyonda kullanıyoruz
+
+ÖRNEK: 
+    int x=5;
+    int y=5;
+
+    printf("%d\n",++x); //output: 6
+    printf("%d\n",y++); //output: 5

@@ -1,0 +1,77 @@
+                KARŞILAŞTIRMA OPERATÖRLERİ    
+
+6. ÖNCELİK SEVİYESİNDE OLANLAR
+>   <   <=  >=      // soldan sağa öncelik sırası
+7. ÖNCELİK SEVİYESİNDE OLANLAR
+==  !=              // soldan sağa öncelik sırası
+
+-Bu operatörlerin yan etkisi yoktur.
+
+-Bu tür operatörler int türden değer üretirler(diğer dillerde bool türden)
+-Eğer ifade doğru ise bu operatörler int türeden 1 üretir.
+-Yanlış ise int türden 0 üretir.
+
+örnek; x = y == z; ( y, z'ye eşit ise x 1 atanır değilse 0 atanır)
+
+
+ NOT  : == operatörü ile sayı karşılaştırması yapılmaz.
+ 
+
+
+                     LOJİK OPERATÖRLER    
+
+
+!     --> Lojik değilse
+&&    --> Lojik ve
+||    --> Lojik veya
+
++ Birçok programlama dilinde "lojik ifade beklenen yerlerde" sadece bool türden ifadeler kullanılır.
++ C'de bu mecburiyet yok. 
+
+A)   Lojik İfade Beklenen Yerler
+-------------------------------------
+-if(expr) parantezi içindeki ifade
+-while(expr) parantezi içindeki ifade
+-do while(expr) parantezi içindeki ifade
+-for(;expr;) parantezi içindeki ifade
+-!expr
+-exp1 || exp2
+-exp1 && exp2
+
++ C'de void türü haricinde bir türden ifade tutabilirsiniz lojik operatörün çıktılarını
++ non-zero ise doğru, 0 ise yanlıştır.
+
+
+B) Lojik Değil (!) Operatörü
+-----------------------------
++unary prefix bir operatördür.
++Ürettiği değer 1 veya 0.
++Doğru ise 0 , yanlış ise 1.
++0 dışındaki sayılar 0 basar, 0'a 1 basar.
+
+C) Lojik Ve (&&) Operatörü(11.öncelik seviyesi)
+-----------------------------
++Binary infix bir operatördür.
++int türden 1 veya 0 üretir.
++Doğru ise 1, yanlış ise 0.
+
++ Örneğin iki if koşulunuz var 
++ bunların sağlanması durumunda işlem gerçekleşicek
++ Bunları && ile bağlayabilirsin
+
+D) Lojik Veya (||) Operatörü
+-----------------------------
++Binary infix bir operatördür.
++En az bir tanesi non-zero ise sonuç true.
+
+Önemli Not: Lojik ve/veya operatörlerinde  operandların ilki yanlışsa ikincisine hiç bakılmaz.
+
+
+                 ATAMA OPERATÖRLERİ
+              ------------------------       
++ =, +=, -=, /=, %=, >>=, ||=
+
+
+A)İşlemli Atama Operatörleri
+-----------------------------
+

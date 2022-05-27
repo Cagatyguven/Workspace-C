@@ -1,0 +1,86 @@
+            FONKSİYONLAR
+-----------------------------------
+
+-C dilinde fonksiyon içinde fonksiyon tanımlanamaz.  
+
+
+
+    A) TEST/QUERY FUNCTION
+  -----------------------
+-bazı fonksiyonların tek varlık nedeni bir değer hesaplamaktır.
+-Ve fonksiyon geri d. değerinin bu amaçla kullanır.
+-Bazı fonksiyonların varlık nedeni ise soruya cevap vermek.
+-Evet/hayır, doğru:/yanlış gibi
+
+
+-Başarı bilgisi döndüren fonksiyon
+-İşini yaptın mı yapamadın mı diye bir dönüş alınır.
+-fonksiyon işini yapabilirse 0 yapamazsa farklı bir değer döndürür(genelde)
+
+En önemli konulardan biri
++ Yazdığım fonksiyon hata durumunda ne yapacağım?
++ Hata durumunu çağıran koda bildirecek miyim?
++ Bildirecek isem nasıl bildireceğim?
+
++ Main fonksiyonunun türüde bu yüzden int. Return 0 yapma nedenimiz bu.
++ Hiç return değeri yoksa main fonksiyonunda bunun anlamı return 0 demektir.
+
+Değişken türü olmayan fonksiyonlar. Yani void fonksiyonlar
+
++ İleteceği bir değer olmaz
++ 3 farklı değer iletme yolu görmüştük. İlk yöntem yerine diğer 2 yöntemi kullanabilir.
++ Örneğin bellekteki adresi iletmesi gibi
+
+
+--------------------------------------------------------------------------------------------------
+
+      B) FONKSİYON ÇAĞRILARI
+  -------------------------------
+
++ operatör seviyesinde bir işlemdir
+
+int main()
+{
+    function call operator
+    func() //func adındaki fonksiyon çağırma işlemi
+    fonksiyonun parametresi var ise 
+    bu parantez içine ona atanacak değerler yazılacak.
+    Bunlara argüman veya actual parameter denir.
+
+}
+
+örnek:
+void func(int x, int y)
+{
+   fonksiyon kodu
+}
+int main()
+{
+    func(20,30);
+    
+}
+
+
++ Geriş dönüş değeri olan(void olmayan) bir fonksiyona yapılan çağrı ifadesinin değeri çağrılan fonksiyonun geri dönüş değeridir.
+
+
+max2(x,y) -> ifade
+max2(x,y); -> ifade deyimi
+
+
++ Aynı değere sahip fonksiyon çıktısını birden çok çağırmak kötü kod örneğidir. Bunun yerine fonksiyon değeri bir değişkene atanarak o değişken kullanılmalı.
+ 
++ İç içe fonksiyon çağırısı yapılabilir.
+  - Max3(max2(int x)) gibi
++ Ama okunma açısından fazla yapılmaması gerekir.
+
+
+ İki önemli ifade
+ ---------------- 
+call by value( değer ile çağrı)
+ - verilen nesnenin değerini kullanarak fonksiyon çalıştırma( her zaman yaptığımız)
+
+call by reference ( referans ile çağrı )
+ - nesnenin direkt kendisini fonksiyonda kullanma
+ - Bunu pointer ile yapıyoruz.(ileride anlatılacak)
+    + func( &x) ile call by referans yapılıyor.

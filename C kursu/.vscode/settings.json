@@ -1,0 +1,7 @@
+{
+    "textmarker.autoSelectDistinctiveTextColor": true,
+    "files.associations": {
+        "cmath": "c"
+    },
+    "C_Cpp.dimInactiveRegions": false
+}

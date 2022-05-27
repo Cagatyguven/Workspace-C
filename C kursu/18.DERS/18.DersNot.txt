@@ -1,0 +1,42 @@
+                            PREPROCESSOR(Ön İşlemci Programı)
+                        ----------------------------------------
+A)Komut Listesi
+-----------------
+1)  "#(null directive)"           
+2)  "#include"  -> <stdio.h> ve "nutility.h" şeklinde 2 farklı yazım şekli var. İkisi de aynı işi yapıyo ama farklı biçimde gerçekleştiriliyor. 
+3)  "#define"
+4)  "#undef"
+5)  "#else"
+6)  "#elif"
+7)  "#endif"
+8)  "#ifdef"
+9)  "#ifndef"
+10) "#line"
+11) "#error"
+12) "#pragma"
+
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+A)2)"#include"
+*************** 
++<stdio.h> ve "nutility.h" şeklinde 2 farklı yazım şekli var.
++İkisi de aynı işi yapıyo ama farklı biçimde gerçekleştiriliyor.
+1.FARK
++<> ile yazıldığında dosyanın varlığından siz değil,derleyici sorumlu oluyor. Mesela standart c kütüphaneleri.
++Kendi oluşturduğumuz dosyalar veya kullandığımız(kendimiz bulduğumuz) kütüphaneler için ise "" kullanılmalı.
+2.FARK
++<> kullanılırsa, ön işlemci dosyayı ,default director denen yerde arar.(yüklenen derleyici klasöründe olur genelde)
++"" kullanılırsa, ön işlemci kaynak dosya neredeyse orada arar.
+Not: <> kullanılırken dosya yolu da verilebilir.
+-----------------------------------------------------------------------------------------------------------------------------------
+
+
+A)3)"#Define"
+**************
++Define ön işlemci komutu ile ön işlemcilere tanıtılan isimlere "Macro"  denir.
++"#define MAX 100" dendiğinde max'a 100 atanır.
++Burada MAX macro oluyor, sembolik sabit veya  manifesto sabit deniyor.
++Macrolar bellekte yer kaplamaz ama normal bir sabit kaplar.
+ 
+ 

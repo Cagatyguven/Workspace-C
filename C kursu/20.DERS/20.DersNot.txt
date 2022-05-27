@@ -1,0 +1,50 @@
+                        1)#if- #endif-#else-#elif
+                    ------------------------------ 
++Her "#if" için ayrı "#endif" şart
++"#elif"'lerde ayrı "#endif" şart değil
++"#if" şartı içinde defined operatörü kullanılabilir.
+  Örneğin:
+          #if defined EMRAH && defined FURKAN
+              int a[200];
+  + Burada emrah ve furkan ilk başta tanımlanmışsa blok içine giricek
+-----------------------***********************-----------------------------------------------------------------------------------------------------------------------------------------------
+                          2) #ifdef
+                        -------------
++"#ifdef" bloğuna girilebilmesi için daha sonra verilen değerin tanımlanmış olması yeter.
++Bu blokların kullanılmasının nedeni bazı kütüphanelerde işimize yarayan değerler var ve bunu kullanmak için başta tanımlamamış olmamız gerekiyor.
+
+
+1)DEĞERLERİN ADLANDIRILMASI(YUKARIDAKİ OPERATÖRLERİN YAZIMINDA)
+-----------------------------
+A)DONANIMA GÖRE
+B)İŞLETİM SİSTEMİNE GÖRE
+C)DERLEYİCİYE GÖRE
+D)DİLE GÖRE
+E)VERSİYON/SÜRÜM KONRTOLÜ İÇİN
+F)LOKALİZASYONA GÖRE
+
+-------------------------****************************---------------------------------------------------------------------------------------------------------------------------------------
+                          3)ASSERTİON KODLARI
+                      -----------------------------
++Kodlama hatası olup olmadığını kontrol eden kodlardır.
++Sürekli if blokları ile kontrol yapılır.
++Kontrol sonrası bu kontrolleri devre dışı bırakıp ana koda gitmek gerekiyor.
++Bu devre dışı bırakmanın yolu koşullu derleme sürümünün içine almaktadır.
+-Debug version ve release version
+Örnek:
+    #define DEBUG                    
+    #if DEBUG
+            KONTROL KODU
+            .
+            .
+            .
+    #endif
+    - Bu kötü bir yol aslında. Asıl optimize yol #include<assert.h>
+  
+                          
+
+
+
+
+
+

@@ -1,0 +1,132 @@
+            KARAKTER KODLAMASI(CHARACTER LITERAL)   
+        ---------------------------------------------
+    
+Sistemde kullanılan karakter kodlamasında bu karakterin kod numarası
+
+65 - 0X41 - A
+.....
+90          Z
+
+Büyük Z'den sonra 6 karakter daha var daha sonra küçük a ile başlıyor.
+Araya 6 karatker konulması bilerek yapılmış
+Küçük harf- Büyük harf dönüşümünü kolayca yapabilmek için
+  
+-----------------***************-------------------************----------------
+
+alphabetic character    -> ( karakter kodlamasında harf kullanılıyorsa        )
+numeric/digit character -> ( karakter kodlamasında sayı kullanılıyorsa        )
+alph-numeric character  -> ( yukarıdaki iki karakter tipinin karmasına denir. )
+
+control character 
+--------------------     
+-> görüntüsü olmayan özel amaçlar için kullanılan karakter. alfa nümerik değildir.
+-> ilk 32 karakter ve 127 nolu karakter bu statüdedir.
+
+printable character  
+--------------------   
+-> görüntüsü olan ve alfa nümerik karakterler
+
+punctuation character
+------------------------   
+-> ( görüntüsü olan ama alfa nümerik olmayan karakterler  ) 
+
+---------------------------------------------------------------------------------------------------------
+********** ÖNEMLİ NOT: KARAKTERLER HER ZAMAN TEK TIRNAK(' ') içinde yazılacak. "" DEĞİL. ***************
+----------------------------------------------------------------------------------------------------------
+
+            escape sequence (kaçış dizgisi)        
+         
++ Bir karakter anlamı dışında özel bir anlamda kullanılıyorsa bu karaktere escape deniyor.
+
++ Örneğin: \ karakteri escapedir.
+
++ 3 gruba ayrılıyor
+    -  \?, \" ile karakteri yazarak
+    -  \x41  gibi karakterin asci hexdecimal değerini yazarak
+    -  \201,\101 gibi octal kodunu yazarak
+
+                                                                                                                 
+                                                                                                                 
+
+
+. 0101 1010 şeklinde gelen değeri yine 0101 1010 kullanıcaksak buna formatsız çıkış fonksiyonu denir.
+. 0101 1010 şeklinde gelen değeri 90 şeklinde kullanıcaksak buna formatlı çıkış fonksiyonu denir. ( scanf ve printf deki f , formatlıdan geliyor.)
+
+
+            Giriş ve Çıkış İşlemlerinde formatlama nedir?   
+        ----------------------------------------------------
+-> Girişi veya çıkışı yapılacak verinin insanı anlıcağı şekle sokmak.
+
+
+A) Tam Sayıların Formatlanması
+------------------------------
++ Formatlamadan önce tercihler belirlenmeli mesela sayı sistemi belirlenmeli.
++ Pozitif sayılarda mesela + kullanılsın mı? ( +76 mı 76 mı?)
++ Hexadecimal ile yazdırırken 41 şeklinde mi yazdırsın yoksa 0x41 şeklinde mi yazdırsın?
++ En önemlilerinden biri yazma alanı genişliği
+
+A)1) Yazma alanı Genişliği
+----------------------
+Örneğin:
+755 ahmet 
+24613414 mehmet
+82 fatma
+12312 ayşe
+
+gibi insanlara atanan numaralarımız olsun. Bunların hepsi ayrı uzunlukta.
+En uzuna göre formatlama yapılması gerekiyor. Bu en uzuna eşitleme yazma alanı genişliğidir.
+
+755      ahmet 
+24613414 mehmet
+82       fatma
+12312    ayşe
+
+Solda da boşluk bırakılabilir sağda da.
+
+     755 ahmet 
+24613414 mehmet
+      82 fatma
+   12312 ayşe          gibi gibi. Bu sağa dayalıdır.
+
+--------------------------------------------------------------------------------------------------
+                        PRINTF FONKSİYONU         
+- c'de bütün fonksiyon çağırılarını call by value ile yaptık.
+- Call by reference için pointer kullanmamız gerekir.
+- Diziler söz konusu olduğunda call by value olarak geçirilmesi mümkün değildir.
+- Dizilerin hepsi call by reference ile fonksiyonlara gönderilmeli
+
+ 
+- printf içindeki %... yazısı printf içine gönderilen değerin formatını belirlememize yarıyor.
+
+%d = int türden değerleri 10luk sayı sisteminde
+%o = int octal(8lik) sayı sisteminde yazdır demek
+%x = hexadecimal/unsigned türden değerleri (16lık) sayı sistemi
+%ld = long türden değerleri 10luk sayı sisteminde
+%f = gerçek sayılarda double da olsa kullanılır
+%c = sayının asc2 kodlamasındaki karşılığını basar.
+
+printf("%d",printf("%d",printf("%d",y)));
++şeklinde yapıldığında içten dışa doğru yazım işlemi yapılır
++Yani, y nin değeri+y'nin kaç karakterden oluştuğu sayı + y'nin kaç karakterden oluştuğunu gsteren sayının karakter sayısı
++Örneğin y=15 ise sonuç 1521 olur.
+
+printf("%c",65);
+output -> A olur
+
+
+                SCANF FONKSİYONU      
+
++Scanf, standart inputlardan gelen değerler ile programımızdaki değişkenlerimizi set etmek için çağırdığımız fonksiyon.
++Call by reference olmak zorundadır. Set edilecek değişkenlerin adresi & ile belirtilmelidir.
++Variadic fonksiyondur.
+
+
+-buffer=tampon
+-input-output arada kullanılan bellek denilebilir
+-eğer standart giriş akımının tamponu boş değil ise giriş için bir karakter gelmesi beklenemez.
+-bu durumda
+-standart input bufferı program sonuna kadar kalıyor.
+-istenilirse bu boşaltılabiliyor.(sonraki derste görülcek)
+-aynı bufferı getchar fonksiyonu da kullamaktadır.
+ 
+

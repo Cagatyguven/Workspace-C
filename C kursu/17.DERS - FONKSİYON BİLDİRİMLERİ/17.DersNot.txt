@@ -1,0 +1,39 @@
+                                1)İç İçe Döngüler
+                             ----------------------
++İç İçe olan döngülerde en içteki döngüden tüm döngüyü kırmak istersek ideal olan yöntem go to deyimini kullanmaktır.
++Flag ile de yapılabilir.
+
+--------------------------*********-------------------------------------------------------------------------------------------
+
+                    2)Fonksiyon Bildirimleri(Function Declaration)
+               ----------------------------------------------------------
+
++C'de "void func()" ile "voide func(void)" şeklindeki bildirimlerin anlamları farklı. C++da ise aynı
++"voide func(void)" şeklindeki bildirildiğinde, fonksiyonun parametre değişkeni yok demiş oluyoruz.
++"void func()" şeklinde bildirildiğinde ise parametre değişkenleri hakkında bilgi vermek istemiyorum demiş oluyorsunuz.
+
++Parametre ismi verilmemesi de legal. Örnek void func(int) gibi
+
+--------------------------*********-------------------------------------------------------------------------------------------
+
+
+                                 3)Modül
+                            ----------------------
+-Projeyi oluşturan farklı kaynak kodlarında "modül" denir.
+-Farklı kaynak kodlarında kullanılacak modüllerimiz var ise kaynak kodları için 2 farklı dosya oluşur. Bu dosyalardan biri .c diğeri .h uzantılı olur
+-Aslında bu iki uzantı bir modül oluşturuyor.
+-".h" uzantılı dosya "headerfile"(başlık dosyası) olarak geçiyor. ".c" kod dosyası(source file yada implementation file olarak da tanımlanıyor) oluyor. .c dosyasının derlenmiş haline obje deniyor.
+-c dosyasında kullanılmak istenen fonksiyon/parametre gibi deyimler için keywordler .h dosyasına yazılıyor.
+-.h dosyasından alınarak kullanılabilir hale geliyor. .h dosyasında bildirimler bulunuyor.
+
+Örnek: 
+    -ali.c dosyasındaki fonksiyon mehmet.c de kullanılacaksa, mehmet.c dosyası başına "#include "ali.h" " ibaresi yazılıyor.
+
+
+
+ A)Başlık Dosyasında Neler Bulunur?  
+------------------------------------
+i)ön işlemci komutları(macrolar) -> #define _CRT_SECURE_NO_WARNINGS(uyarı mesajı almamak için) gibi gibi
+ii)fonksiyon Bildirimleri
+iii)tür eş isim(type alias) bildirimlerin
+iv)user defined types tür bildirimleri

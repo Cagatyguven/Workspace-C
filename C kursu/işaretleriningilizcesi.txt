@@ -1,0 +1,34 @@
+
+() PARANTHESIS
+{} BRACE
+[] SQUARE BRACKET
+<> ANGULAR BRACKET
+
+33 - ! = exclamation mark
+34 - " = double quote
+35 - # = number sign
+37 - % = per cent
+38 - & = ampersand
+40 - ( = left PARANTHES
+41 - ) = right PARANTHES
+42 - * = asterisk
+43 - + = plus
+44 - , = coma
+45 - - = hyphen
+46 - . = period
+47 - / = slash
+58 - : = colon
+59 - ; = semi colon
+60 - < = less than
+61 - = = equal
+62 - > = more than
+63 - ? = question mark
+91 - [ = left SQUARE BRACKET
+92 - \ = back slash
+93 - ] = right SQUARE BRACKET
+94 - ^ = caret
+95 - _ = under score
+123 - { = left BRACE
+124 - | = pipe
+125 - } = right BRACE
+126 - ~ = tilde

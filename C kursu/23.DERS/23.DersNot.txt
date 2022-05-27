@@ -1,0 +1,30 @@
+                                    1)RASTGELE SAYI ÜRETİMİ
+                                -------------------------------
++Çekiliş,şifreleme,eşleşme,genetic algorithms,test kodları ve game programming gibi alanlarda kullanılır.
++İki kategoriye ayrılıyor; a) "true(truly) random number generation" b) "pseudo random number generation"
+
+1)A)true(truly) random number generatio(Gerçek)
+----------------------------------------
+-Gerçek rastgele sayı üretimi
+-Çok yavaş
+-Bazen üretilen sayılara geri dönmemiz gerekiyor yada tekrar elde etmemiz gerekiyor. Bu türde bunu yapamıyoruz.
+
+
+2)B)pseudo(sido) random number generation(Sözde)
+------------------------------------------
+-Birden farklı algoritma ile yapılabilir.
+-Algoritmayı başlatan bir değer oluyor, buna "seed value" deniyor.
+-En çok kullanılan algoritma "mersenne twister algorithm"'dır.
+
+**************************************************************************************************
+
++ stdlib kütüphanesinde iki tane basit fonksiyon var;
+    1)int rand(void);-> her seferinde aynı sayılar basılır.[0 - RAND_MAX] aralığında rastgele sayı üretiyor.
+    2)void srand(unsigned int); rastgele sayı üreticisinin tohum sayısını set ediyor. Her tohum için ayrı bir zincir var. srand'ı çağırmazsak sanki bir gibi çağırmış sayılıyoruz.
+    Ayrıca RAND_MAX diye bir macromuz var.
+
+
++ calendar time(takvim zamanı):
+    -Belirli bir time pointi orijin olarak alıyoruz ve zamanı o orjinden geçen saniye olarak alıyoruz.
+    -Orijin olarak alınan değere "Epoche" adlandırılıyor.
+    -Uniq sistemlerde Epoche değeri 01.01.1970 00:00 dır.

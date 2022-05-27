@@ -1,0 +1,44 @@
+               1)  FONKSİYONEL MACROLAR(FUNCTIONAL MACROLAR)
+        ----------------------------------------------------
++"#define max2(a,b)" gibi yazılır. Büyük harf zorunluluğu yoktur.
++örnek:
+     #define max2(a,b) ((a)>(b)? (a):(b))
+
++Kullanılma nedenleri;
+    a)kodu küçük fonksiyonların giriş çıkış maliyetinden kurtulmak için
+    b)   
+
++Normalde fonksiyon çağırırmış gibi macro çağırıyoruz. Örnek square(ival)
++Ama aynı isimde hem fonksiyon hem macro var ise fonksiyon ismi parantez içine alınır.
++Bunla ilgili <MÜLAKAT SORUSU> soruluyor.
+  
+
+  
+
+A) FONKSİYONEL MACROLAR İLE FONKSİYONLARIN FARKI
+---------------------------------------------------
+  i) Makrolar program daha hızlı çalışsın diye oluşturuluyor. 
+ ii) Makrolar kaynak kodu büyütme (derlenmiş kodu) eğilimindedir.
+iii) Fonksiyonlar türe bağlı, makrolar türden bağımsızdır.
+ iv) Makro kullanımı durumunda debugger desteği daha az olabilir.
+  v) Fonkisyon adresi kullanılan temalarda makrolar kullanılamaz.
+ vi) Makrolarda kodlama hatası riski foksiyonlara göre daha yüksektir.
+vii) Makrolar fonksiyonlara göre daha etkin kodun oluşturulmasını sağlayabilirler.
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+                2) PREPROCESSOR OPERATOR
+        -----------------------------------
+  i) # operatörü (stringification operator - string yapma operatörü)
+ ii) ## operatörü ( token-pasting operator - atom yapıştırma operatörü)
+iii) defined operatörü
+
+
+I) stringification operator ( # )
+********************************
++"#x" yazıldığında "x"'e çeviriyor
+
+II) token-pasting operator ( ## )
+**********************************
++"a##b" yazıldığında ab şekline çevriliyor

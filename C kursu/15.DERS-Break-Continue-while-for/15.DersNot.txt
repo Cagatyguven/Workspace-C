@@ -1,0 +1,67 @@
+                        1)DÖNGÜ DEYİMLERİ
+                    --------------------------
+
+A)While Döngüsü
+---------------
++while(n--> 0,2,3,4) gibi bir şey görürsek bu n kez tekrarla anlamındadır
+
+B) For Döngüsü
+----------------
++for(exp1;exp2;exp3)
+    statement1;
++Exp1 -> bir kez dikkate elınan değer 
++Exp2 -> kontrol bölümü (while içindeki şart neyse bu da odur)
++Exp3 -> Yapılan kotnrol sonrası gerçekleştirilecek eylem
+ 
+
+
+-------------------------------------------------------------------------------------------------------------
+                        2) DÖNGÜLERDEN ÇIKMA
+                    ------------------------------
+Döngü deyiminden çıkmaya neden olanlar
+--------------------------------------
+a)Kontrol ifadesinin yanlış olması
+b)Döngü gövdesi içinde return deyiminin yürütülmesi
+c)break statement
+d)goto deyimi
+e)exit (c'ye özel fonksiyon)(programın çalışmasını sonlandırır)
+f)abort (c'ye özel fonksiyon)(programın çalışmasını sonlandırır)
+
+
+A) Break Deyimi
+---------------
+-Break deyimi ile döngüden direkt çıkılır
++Örnek;
+    Döngü()
+    {
+        statement1
+        statement2
+        statement3
+        if(expr)
+            break;
+        statement4
+    }
+    statement5
+    - sonuç :
+    +İf dögüsü doğru ise ve break kullanılırsa
+    +statement1,statement2,statement3 ve statement5 gerçekleşir.
+    +statement4'e uğramaz
+
+-Break deyimi her zaman döngüden çıkmaya yarar, if ile alakası yok.
+
+B) Continue Deyimi
+------------------
++Sadece döngülerde kullanılıyor.
++Döngünün kalan kısmının yapılamamsını sağlıyor.
+
+C)Do While Döngü Deyimi
+------------------------  
++işlem sonrası while kontrolü yapılıyor.
++yani whiledaki gibi kontrol ilk başta yapılmıyor sonra yapılıyor.
++İşlem birkez gerçekleştiriliyor eğer hala şartlar uygunsa 2.kez tekrar gerçekleştiriliyor.
+    Örnek:
+    do{
+        statement1;
+        statement2
+    }while(exp);
+--------------------------------------------------------------------------------------------------------------------------------------

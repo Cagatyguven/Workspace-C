@@ -1,0 +1,91 @@
+        NAME masking AND hiding
+-----------------------------------------------------------------------------------
+int x=20;
+
+int main()
+{
+    int x=10;
+    printf("x =%d \n", x); //output 10 olur
+
+blok scope'daki x diğerinin basılmasını engelledi
+buna name hiding yada name masking denir.
+-Shadow 
+}
+
+-----------------------------------------------------------------------------------
+
+
+                FONKSİYONLAR
+-------------------------------------------
+a) to define a function
+b) to call a function
+c) to declare a function
+
+-return value (geri dönüş değeri)
+-call by reference(nesnenin adresi kullanılarak)
+
+
+örnek:
+-------
+double func(int x, int y)
+{
+fonksiyon kodu
+}
+
+-Buradaki double geri dönüş değeri türünü belirtir.
+-Parantez içindeki değerler parametre değişkenleridir.
+-Süslü parantez bölümüne fonksiyonun ana bloğu denir.
+
+        ÖNEMLİ NOT!
+-----------------------
+Fonksiyonun parametre değişkeni olmayabilir. 
+Parametrenin olmadığını belirtmek için alana void yazılır.
+Fonksiyon bir değer döndürmüyor olabilir. Bunun için isim öcnesi void kullanılırç
+örnek:
+------- 
+int func(void)
+{ 
+}
+
+
+---------------------------------------------------------------------------
+-expression Statement(iifade deyimi)
+        z=10;, ++a,func(); bunlar ifade deyimi
+
+-compound Statement(bileşik deyimi)
+
+-null Statement(boş deyim)
+        ; noktalı virgülün öncesinde bir şey yazmasından kullanımına denir.
+
+-control Statement(kontrol deyim)
+        +if statement
+        +loop statements
+                -while statement
+                -do-while statement
+                -for statement
+        +switch statement
+        +goto statement
+        +break statement
+        +continue statement
+    ****+return statement**********
+
+
+        Return Statement
+----------------------------------
++return statement bir control statement bileşenidir.
+
+
+kullanım amacı
+---------------
+a) bir fonksiyonun kodunun çalışmasını sonlandırmak
+b) fonksiyonun kendisini çağıran bir değer iletmesini sağlamak
+
+
+İKİ TÜR RETURN DEYİMİ VARDIR:
+1) ifadesiz return deyimi;
+        return;
+2)   İfadeli return deyimi
+        return abcde;
+
+
+-Eğer fonksiyonun geri dönüş değeri varsa return kullanılmak zorundadır. Olmazsa syntax hatasıdır.

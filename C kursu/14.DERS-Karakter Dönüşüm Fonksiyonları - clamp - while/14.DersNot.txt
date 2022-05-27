@@ -1,0 +1,51 @@
+                 1)KARAKTER DÖNÜŞÜM FONKSİYONLARI
+                -------------------------------------
+
+-Küçük harften büyük harfe yada büyükten küçüğe dönüştüren fonksiyonlar
+-Örnek:
+    +int toupper(int);
+    +int tolower(int);
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                      2)CLAMP FONKSİYONU
+                -----------------------------
++c'de standart bir fonksiyon değil
++int clamp(int val, int low, int high);
++2.ve 3. parametresi bir aralık değeri.
++Eğer val değeri bu ikisi arasındaysa clamp değeri velue değeri olacak
++Eğer val değeri üst sınırdan büyük eşit ise clamp değeri üst sınır olacak
++Eğer val değer küçük eşit ise clamp değeri alt değer olacak.
+
+A) Koşul(ternary) Operatörü
+----------------------------
+-3 Operand alan operatör türü. (unary ve binary operatör türleri de vardı)
+- ? : operatörleri birlikte kullanıldığı için 3 operand gerekir.
++ op1 ? op2 : op3 (13. öncelik seviyesi)
++En çok makrolarda kullanılıyor.
+
+örnek: m= x > 10 ? a : b; -> m, x ,10dan büyük ise a nın değeri değil ise b nin değerini alır. 
+
++Bu operatörünün kullanıldığı senaryolar:
+    + Bir değişkene bir koşula bağlı olarak 2 farklı değerden biri atanacak ise
+        örnek : x= a>10 ? i : j;
+    + başka operatörün operandı olarak da kullanabiliriz. i
+        örnek : if(totaldays > (isleap(y)? 366: 365))
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+                      3)DÖNGÜ DEYİMLERİ (LOOP STATEMENTS)
+                    ---------------------------------------
++while,do while ve for döngü deyimi 
+
+A) While döngü deyimi
+---------------------
++İlla döngü eylem garantisi vermez. Yani while döngü şartı sağlanmak zorunda değil
++İf'le aynı yani false olabilir
++   While(exp)
+        statement1;
+        statement2;
+        statement3; gibi yazılması durumunda sadece statement1 çalışır.
+birden çok işlem yapılacaksa {} kullanılmalı
+
+ 

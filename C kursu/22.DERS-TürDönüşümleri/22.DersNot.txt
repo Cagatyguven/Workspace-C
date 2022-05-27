@@ -1,0 +1,74 @@
+                                1)TÜR DÖNÜŞÜMLERİ( TYPE CONVERSIONS)
+                            -----------------------------------------
++Derleyici aynı türde değerlerle işlem yapıyor.
++Farklı türdeki sayıları toplamak için aynı türe çeviriyor. Buna "implicit(gizli/örtülü) type conversion" deniyor. Bunu derleyici otomatik yapıyor.
++Bir de implicit'in tersi "explicit(açık açık /talep ederek) type conversion" var. Kodu yazanın derleyiciye bu tür ile işlem yap demesine deniyor.
++Explicit type c. bir operatör ile yapılıyor. Bu operatör "type-cast" operatörüdür.
+
+
+1)A)Implicit Type Conversion
+------------------------------
++Operandların türleri farklı ise de  rleyicinin işlemi yapabilmesi için operandları aynı türde ifade etmesi gerekiyor.
+Bazı kurallar:
++ival=dval dediniz, dval önce inte dönüştürülecek öyle atanacak.
++func(dval) fonksiyonun parametre değişkeni int diyelim bu dval int'e dönüştürülür.
+
+-----------------------------------------------------------------------------------------
+*Not*:Kalıcı bir dönüşüm yok. Yani a=b dediğimizde b'nin türü sonsuza kadar değişmiyor.
+-----------------------------------------------------------------------------------------
+
+Örnek: a + b
+       +Burada a veya b'den biri "long double" ise diğeri de "mutlaka long double yapılıyor". İşlem bu türden yapılıyor.
+       +Eğer "ikisi de long double değil" ama biri double ise diğeri de "double" yapılıyor. İşlem bu türden yapılıyor
+       +İkisi de "ne double ne long double". Ama "biri float ise" diğerini de "float" türüne dönüştürülerek işlem yapılıyor.
+       +Intden daha küçük veri türleri var(char,unsigned short,signed short,unsigned char,signed char,_Bool). Eğer bu türlerden biri var ise otomatikman direkt int'e yükseltiliyor.
+       +"RANK SIRALAMASI": long double>double>float>long long>long>int(NOT: aynı türün işaretlisi ile işaretsizinin ranki aynı) 
+       +Tür dönüşümü işte her zaman bu sıralamaya göre yapılıyor.(NOT: Aynı türden işaretli ve işaretsiz iki değer varsa her zaman işaretsize göre dönüşüm yapılır)
+       +Ranki yüksek olan işaretli, düşük olan işaretsiz ise sonuç yüksek ranki olan ve işaretsiz olur.(unsigned int+long= unsigned long gibi) 
+Örnek-1: 
+    char c1 = 10;
+    char c2 = 20;
+
+    c1+c2nin türü intdir. Çünkü intden küçük değerler int'e yükseltilir.
+
+Örnek-2:
+    unsigned int uval = 5;
+    int ival=10;
+
+    uval+ival'in türü unsigned int cinsinden olur çünkü rankleri aynı bu surumda işaretsiz cinsten işlem yapılır.
+
+Örnek-3:
+    unsigned int uval = 5;
+    long ival =10;
+
+    ival+uval'in türü "unsigned long" olur çünkü long, unsigned intin tüm değerlerini tutamaz bu yüzden unsigned long olmalı.
+
+Örnek-4:
+    long long uval = 5;
+    unsigned int ival = 10;
+
+    ival+uval long long türünden olur çünkü long long ranki daha yüksek ve int 4 byte iken long long 8 byte bu yüzden unsigned olmasın gerek yok.
+
++ Yapılan Bazı Hatalar
+-Tam sayılı türlerde taşma, tanımsız davranıştır. Örneğin iki int çarptınız ve bu işlemin sonucu int sayı sınırları içinde değil ise bu undefined behaviordır.(işaretsiz türlerde taşma yoktur.)
+
+
+1)B)Explicit Type Conversion
+------------------------------
++Küçük türden büyük türe atama yapmakta bir sıkıntı yok.
++printf içinde de tür dönüşümü yapıyoruz
+
+%d  -> signed int
+%u  -> unsigned int
+%lu -> unsigned long
+%x  -> hexadecimal
+%s  -> yazı yazdırmak için
+
++Not: Koşul operatörü 3. ve 4. operatörleri arasında da tür dönüşümü uygulanır.
+
+
+1)C)Tür Değiştirme Operatörü(type-cast operator)
+-------------------------------------------------
++(int)dval ile tür değiştirilir. dval double iken bu operatör ile int'e dönüştürülüyor. Kalıcı olmuyor, sadece o işlemde geçerli oluyor.
++İşlemin istenilmeyeceği türde yapılabileceği durumları düzeltmek(örnek3 gibi), potansiyel veri kaybı var ise niyeti anlatmak(kodu okuyana) gibi durumlarda bu operatör kullanılır.
+

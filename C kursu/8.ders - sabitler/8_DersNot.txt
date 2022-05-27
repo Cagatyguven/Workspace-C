@@ -1,0 +1,58 @@
+                Standart Kütüphane 
+            -------------------------
++ Standart kütüphane, dilin standartlarında bulunan derleyicinin sunması gereken bazı yazılımsal varlıklar.
++ Bunların başında standart fonksiyonlar gelir.
++ Printf veya Scanf standart bir c fonksiyonudur.
+
+
+ Standart kütüphanelerin kullanım nedenleri
+ ------------------------------------------
+1) Zaman kazandırma / Test etmeye gerek yok
+2) Verim 
+3) Taşınabilirlik
+    + Derleyiciden derleyiciye, işletim sisteminden işletim sistemine geçerken kodu değiştirmek zorunda kalabilirdik.
+    + Ama standart kütüphaneler bizi farklı kod yazma zahmetinden kurtarıyor.
+
+
+
+
+Variadic Function
+-------------------------
+- Değişken sayıda argüman ile çağırılabilen fonksiyonlar.
+
+
+Not: Function Overloading, nested function(iç içe fonksiyon) kavramları c'de yok.( java ve c#'da var)
+
+
+
+                Constants (Sabitler)
+            ----------------------------
++ Sabitleri 3 ayrı sayı sisteminde yazabiliriz.(octal,desimal,hexadecimal)
+
++ Türleri
+    - Int (Signed/unsigned)
+    - Long (Signed/unsigned)
+    - Long Long (Signed/unsigned)
+    - Float
+    - Double
+    - Long double
+Not: Değişkenlerin türü char,str olabilir ama ona atanan yada initiliaze edilen sabit char veya str olamaz.
+     int x = 5; burada x değişken , 5 sabit.
+
+Not: String olarak bildiğimiz sabitlerde var ama bunlar derleyiciye göre birer array.
+     int name= 'ayse'; dediğimiz ayse aslında bir array
+
++ Sayının sonuna u/U koyarsanız işaretsiz bir int sabit olur.
+    int x=29050259u; gibi
+
++ Sayının sonuna l/L koyarsanız işaretsiz bir long sabit olur.
+    long x=305420573L;
+
++Sayının sonuna f/F koyarsanız işaretsiz bir long sabit olur.
+        x=305420573F;
+
++ Sayının sonuna . koyarsanız işaretsiz bir long sabit olur.
+    23. gibi
+
+
+

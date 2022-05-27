@@ -1,0 +1,11 @@
+
+-<stdio.h>
+
+-<ctype.h>
+    -int isupper
+    -int islower    ....gibi gibi fonksiyonları içeriyordu.
+    
+-<math.h>
+    -double sqrt(double)
+    -double pow(double,double) gibi fonksiyonları içeriyordu.
+

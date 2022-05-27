@@ -1,0 +1,56 @@
+                    KONTROL DEYİMLERİ  
+                -----------------------------
+NOT: if(expr)'den sonra virgül kullanılmaz
+                if(x>5); yanlış
+ 
++else-if  merdiveni yerine direkt else if kavramı kullanılmaya başlandı
++Else if yerine bazen switch deyimi kullanılabiliyor.
+ 
+------------------------------------------------------------------------------------
+
+                 GETCHAR-PUTCHAR İŞLEVLERİ
+              -------------------------------
++int getchar(void); ve int putchar(int); şeklinde bildirimleri yazılır.
++scanf ve getchar aynı bufferı kullanır.
++getchar int,long long gibi veri türlerine sığmadığı durumda da kullanılabilir.
+
++getch/getche fonksiyonları bakılsın daha sonra.
+
+-------------------------------------------------------------------------------------
+
+                    TEST FONKSİYONLARI
+                -------------------------
+
+-Bazı fonksiyonların amacı evet/hayır, var/yok ve doğru/yanlış sorularına cevap vermek
+-Bu fonksiyonlara test fonksiyonları denir.
+-Bu fonksiyonların geri dönüş değeri int cinsten yapılıyor.(genelde)
+-İsimlendirme genelde is ile başlıyor.Isupper,isprime gibi.
+
+- Eğer non-zero ise boolean true
+- Eğer zero ise boolean false
+
+
++if(isprime(x) == 0) ile if(isprime(x)) aynı şey demektir.
++if(isprime(x) != 0) ile if(! isprime(x)) aynı şey demektir.
+
+                            CTYE.h
+                      -------------------      
++c'nin standart kütüphanesinin çok önemli bir modülü var.
++Bu modül <ctpe.h>'dır.
++Bu başlık dosyasında bildirilen test fonksiyonları var.
++Karakterlerin belli niteliklere sahip olup olmadığını kontorl etmeye yarıyor.
++Bu fonksiyonların hepsi is ile başlıyor ve geri dönüş değeri int.
+
++Bazı fonksiyonlar
+    -int isupper(int c)  ->  büyük harf karakteri mi?
+    -int islower(int c)  ->  küçük harf karakteri mi?
+    -int isalpha(int c)  ->  harf karakteri mi?
+    -int isdigit(int c)  ->  rakam karakteri mi?
+    -int isalnum(int c)  ->  alfanümerik karakter mi?
+    -int isxdigit(int c) ->  hexadecimal sayı sisteminde basamak gösteren karakterlerden biri mi?
+    -int isspace(int c)  ->  whitespace karakter mi?(\ 'den sonra gelenler. \n,\t,\v,\f,\r gibi gibi)
+    -int ispunct(int c)  ->  görüntüsü olup harf veya rakam olmayan karakterlere punc deniyor.
+    -int isprint(int c)  ->  görüntüsü olan karakter(boşluk karakteri dahil)
+    -int isgraph(int c)  ->  görüntüsü olan karakter(boşluk karakteri dahil değil)
+    -int isblank(int c)  ->  boşluk veya tab karakteri mi?
+    -int iscntrl(int c)  ->  görüntüsü olmayan karakter mi?

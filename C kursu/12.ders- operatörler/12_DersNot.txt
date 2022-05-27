@@ -1,0 +1,61 @@
+                            YAN ETKÜ NOKTASI  
+                        -----------------------
++Sequence Point
++Yan etkisi noktasıdır. 
++Yan etki noktaları sonrasında önceki değişen şeylerin tamamlandığı garanti edilir.
++Yan etki yaratan operatörlerin yarattığı efekt yan etki noktalarından sonra kesinlikle kendisini gösterir.
+
+
+a)Yan Etki Noktaları
+---------------------
+1)Deyim sonunda
+2)Bazı operatörlerin operandlarının değerlendirilmesinden sonra
+    -Lojik ve/veya,ternary ve virgül operatörlerinde
+3)if ve while parantezi içerisinde
+4)for döngüsü içerisindeki noktalı virgüller
+-------------------------------------------------------------------------
+
+Not: Bir yan etki noktasından önce bir yan etkiye kalmış nesneyi tekrar kullanılırsa bu tanımsız davranıştır.
+
+-----------------------------------------------------------------------------------
+
+
+                    VİRGÜL OPERATÖRÜ
+                --------------------------
++ soldan sağa öncelik seviyesindedir.
+
++int a=5,b=10; 'daki virgül operatör değil.
++func(a,b)'deki virgül operatör değil.
++int ar[]={1,4,5,7,8}'deki virgül operatör değil.
+
++ Virgül operatörünün sol o perandından sonra yan etkisi vardır.
+
+
+                    KONTROL DEYİMLERİ
+                -------------------------
++Deyimler 4'e ayrılmıştı
+    1)İfade deyimleri
+    2)Boş deyim
+    3)Birleşik deyim
+    4)Kontrol deyimleri 
+
++İlk 3 deyim daha önceden belirlenmiş bir syntax kuralı var. Belirli anahtar sözcükleri içeriyolar.
+
++Kontrol deyimleri;
+    1)İf
+    2)while-dowhile-for
+    3)switch(elseif'e altrenetif)-goto(tüm dillerde en az kullanılanlardan birisi)
+    4)return-break-continue
+
+
+A) If statement
+----------------
+-İf parantezi için void ifade kullanılamaz.
+
+
+B) Koşul İfadelerinde yapılan en sık hatalar
+----------------------------------------------
++ve/veya operatörlerinin karıştırılması
++== ile = operatörlerinin karıştırılması
++if(5<x<20) yaptığınızda 20'den küçük tüm sayılar true olur.
++Bunun için if(x>5 && x<20) şeklinde yazılmalı

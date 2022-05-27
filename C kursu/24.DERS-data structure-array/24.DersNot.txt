@@ -1,0 +1,35 @@
+                                                                    1)Algoritmalarda verimlilik-Big O notation
+                                                            ---------------------------------------
+-Veri yapısındaki öğe sayısı arttıkça, işlem sayısı artar yani verimlilik düşer.Öğe sayısına göre verimlilik sıralaması;
+    Log(n) > n > n log(n) > n^2 >n!           (o(kn) ve o(nk) şeklinde de 2 tane daha var. Bunlar iç ie döngüleri temsil ediyor)
+-Traveling sales man probleming(en ünlü kısayol bulma problemlerinden birisi). Bu algoritmanın karaşıklığı n! faktöriyel. Bu tür algoritmalara nonpolinomial algoritmalar(np problem) deniyor. Çok uzun sürüyor.
+-'quic sort algoritması' endüstride en çok kullanılan algıritmalardan biri(karmaşılkığı log(n) dir.)
+-'buble search algorithm' ise bir sıralama algoritmasıdır.
+-2 listenin birleştirip sıralanmasına 'merge algorithm' deniyor.
+
+
+                                                                      2)DATA STRUCTURE
+                                                                ----------------------------
++Diziler c'de gelen hazır bir veri yapısı(data structure).
++Algoritmalarda verilerimiz var, bu verileri kullanabilmek için bellekte tutmalıyız. Bunların bellekte nasıl tutulduğu bilgisine 'data structure' deniyor. Bellekte nasıl konumlandırılacağı da denilebilir.
++'Dinamik array' ile bellekteki öğenin yerini bilerek o öğeyi kullanabiliyorum
++'Bazı data structure yapıları'-> arrays,hash table, graphs, linked lists, deque, trees, heap
+
+
+2)A) DİZİLER(FİXED ARRAY)
+-----------------------------
+-"Fixed arrayde" veri yapısındaki "öğe sayısı değişmiyor".
+-Yine dinamik arraydeki gibi "öğeler bellekte sıralı".
+-cdeki arraylerin türü bu şekildedir. C++'da ise dinamik array vardır. Cde dinamik array yoktur.
+-C'de arrayin elamanlarını "silme,eleman ekleme gibi işlemler yapamıyoruz".
+-İndexini bildiğimiz array'e constant timeda erişebiliyoruz. O(1) karmaşıklığında
+-Değerle erişim ise, sıralı değilse o(n) karmaşıklığında
+-Dizileri "initialize edebiliriz".Yani belirli sradaki öğesine istedğimiz değeri atayabiliriz.
+-"Kullanım erişilebilirliği açısından": Global arrayler olabilir, local arrayler olabilir.
+-"Ömür açısından":statik ömürlü arrayler olabilir,
+-İlk değerler  verilmezse arrayin tüm elemanları 0 değeri almış gibi başlıcak.
+-Fonksiyon parametresi,geri dönüş değeri bir dizi olamaz.(int func(int a[5]) gibi bir şey olamaz.)
+
++ 2)A)I) Array Decay-Array To Pointer Conversion:
+   -Bir dizi ismi bir ifade içinde kullanıldığında her zaman dizinin ilk elemanının adresine dönüştürülür.
+
