@@ -1,6 +1,7 @@
 #include "nutility.h"
 #include<stdio.h>
 #include<time.h>
+#include<stdlib.h>
 
 int isprime(int val)
 {
@@ -37,3 +38,27 @@ int ndigit(int val)
     }
     return digit_count;
 }
+
+void set_array_random(int* p, int size)
+
+
+{
+    while (size--)
+    {
+        *p++ = rand() % 1000;
+    }
+    
+}
+
+
+void print_array(const int* p, int size )
+{
+    for (int i = 0; i < size; ++i){
+        if(i != 0  && i % 20 == 0)
+            printf("\n");
+        printf("%3d",p[i]);
+    }
+    printf("\n-----------------------------------------------------------\n");
+}
+
+

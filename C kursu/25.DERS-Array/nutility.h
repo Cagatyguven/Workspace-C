@@ -10,6 +10,9 @@
 int    isprime(int val);
 void   pline(void);
 int    ndigit(int);
-void   set_array_random(int* p, int size)
+
+void set_array_random(int* p, int size);
+void print_array(const int* p, int size);
+
 
 #endif
