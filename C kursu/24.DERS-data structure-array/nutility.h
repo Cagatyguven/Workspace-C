@@ -1,5 +1,5 @@
 #ifndef NUTILITY_H
-#define NUTILIT_H
+#define NUTILITY_H
 
 
 
@@ -10,5 +10,7 @@
 int    isprime(int val);
 void   pline(void);
 int    ndigit(int);
+
+#include "nutility.c"
 
 #endif

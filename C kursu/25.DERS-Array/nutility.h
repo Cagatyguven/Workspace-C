@@ -1,5 +1,5 @@
 #ifndef NUTILITY_H
-#define NUTILIT_H
+#define NUTILITY_H
 
 
 
@@ -14,5 +14,6 @@ int    ndigit(int);
 void set_array_random(int* p, int size);
 void print_array(const int* p, int size);
 
+#include "nutility.c"
 
 #endif

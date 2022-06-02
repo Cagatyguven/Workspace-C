@@ -40,7 +40,7 @@ int main()
 
 
 //          ÖRNEK    -      3       -     dizideki en büyük sayı bulma 
-/*
+
 #define SIZE    1000
 
 int main()
@@ -56,7 +56,7 @@ int main()
     
 }
 
-*/
+
 
 
 //          ÖRNEK    -      4       -     arrayin belli bir öğesine değer atama

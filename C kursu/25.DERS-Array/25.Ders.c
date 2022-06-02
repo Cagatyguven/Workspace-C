@@ -38,6 +38,7 @@ int main()
 
 
 
+
 //          Örnek       -     2      -     eleman sayısı bilinmeyen diziye elaman atayarak eleman sayısını belirleme
 /*
 int main()
@@ -52,9 +53,36 @@ int main()
 */
 
 
-//          Örnek       -     3     -     bir dizinin  en büyük, en küçük, runner-up(2.max), min-max bulmak değerlerini bulmak.
 
 
+//          Örnek       -     3     - rastgele sayı üretilip hepsinin to planması ve aritmetik ortalamasını bulma
+/*
+#define     SIZE    100
+int main()
+{
+    int a[SIZE];
+    int sum = 0;
+    randomize();
+    set_array_random(a, SIZE);
+    print_array(a, SIZE);
+
+
+    for ( int i = 0; i < SIZE; ++i){
+        sum += a[i];
+    }
+
+
+    printf("ortalama = %f\n",  (double)sum/SIZE);
+    
+}
+*/
+
+
+
+
+
+//          Örnek       -     4     -     bir dizinin  en büyük, en küçük, runner-up(2.max), min-max bulmak değerlerini bulmak.
+/*
 #define     SIZE    20
 int main()
 {
@@ -86,30 +114,168 @@ int main()
             min= a[i];
         else if (a[i] > max2)
             max2=a[i];
-            
-    
-        
     }
     printf("min = %d,max = %d\n",min,max2);
-
-    
-
-
 
 
     int max_1=a[0];
     int max_runnerup=a[1];
 
-    if ( a[0] < a[1])
+    if ( a[0] < a[1]) //runner up
         max_1 = a[1] , max_runnerup = a[0];
     
     for (int i = 2;  i < SIZE; ++i){
-        if(a[i] >  max){
-            max_runnerup=max;
-            max=a[i];
+        if(a[i] >  max_1){
+            max_runnerup=max_1;
+            max_1=a[i];
         }
         else if(a[i]>max_runnerup)
             max_runnerup=a[i];
-    
+    }
     printf("runner_up %d\n",max_runnerup);
 }
+*/
+
+
+
+
+
+//            ödev     - 
+/*
+
+#define SIZE 20
+int main()
+{
+    int a[SIZE];
+
+    randomize();
+
+    for( int i = 0; i < SIZE ; ++i){
+        a[i] = rand() % 20;
+        printf("%3d ", a[i]);
+    }
+    printf("\n");
+
+    //üretilen rastgele sayılardan uniq olanları geldiği sırayla bastıracaksınız.
+
+
+}
+*/
+
+
+
+
+//                                      fundemantal algorithms
+
+
+//          Örnek       -     5     -     dizi içinde elemanı bulma 1. yol (flag ile)
+/*
+#define     SIZE    20
+int main()
+{
+    int a[SIZE];
+
+    randomize();
+    set_array_random(a, SIZE);
+    print_array(a, SIZE);
+
+
+    int sval;
+
+    printf("aranacak degeri girin: ");
+    scanf("%d",&sval);
+
+    int i;
+    int found = 0;
+
+    for(i=0; i<SIZE; ++i){
+        if(a[i] == sval){
+            found=1;
+            break;
+        }
+    }
+    if (found){
+        printf("bulundu %d indisli elemani\n", i);
+    }
+    else{
+        printf("bulunamadi");
+    }
+
+}
+*/
+
+
+
+
+//          Örnek       -     6     -     dizi içinde elemanı bulma 2. yol (SADECE BREAK İLE)
+/*
+#define     SIZE    20
+int main()
+{
+    int a[SIZE];
+
+    randomize();
+    set_array_random(a, SIZE);
+    print_array(a, SIZE);
+
+
+    int sval;
+
+    printf("aranacak degeri girin: ");
+    scanf("%d",&sval);
+
+    int i;
+
+    for(i=0; i<SIZE; ++i){
+        if(a[i] == sval){
+            break;
+        }
+    }
+    if (i < SIZE){
+        printf("bulundu %d indisli elemani\n", i);
+    }
+    else{
+        printf("bulunamadi");
+    }
+
+}
+*/
+
+
+
+
+//          Örnek       -     7     -     dizi içinde elemanı bulma 3. yol (EN ÇOK KULLANILAN YÖNTEM)
+/*
+#define     SIZE    20
+int main()
+{
+    int a[SIZE];
+
+    randomize();
+    set_array_random(a, SIZE);
+    print_array(a, SIZE);
+
+
+    int sval;
+
+    printf("aranacak degeri girin: ");
+    scanf("%d",&sval);
+
+    int i;
+
+    for(i=0; i<SIZE && a[i] != sval; ++i)
+        ;
+    if (i < SIZE){
+        printf("bulundu %d indisli elemani\n", i);
+    }
+    else{
+        printf("bulunamadi");
+    }
+}
+*/
+
+
+
+
+
+//                                      SIZEOF OPERATOR                                      
