@@ -279,3 +279,67 @@ int main()
 
 
 //                                      SIZEOF OPERATOR                                      
+
+//              örnek    -       8        -     sizeof basic örnekler
+/*
+int main(){
+    int x=10;
+
+    char c=1;
+
+
+    printf("%zu\n", sizeof   x + 5     ); // 4 int türü yeri + 5 = 9 gelir output
+    printf("%zu\n", sizeof ( x + 5  ));   // x+5 sonucu yine int bundan dolayı = 4 gelir output
+    printf("%zu\n", sizeof ( x + 5. ));   // double 8 byte yer kaplar bu yüzden output 8
+    printf("%zu\n", sizeof   c);          // char 1 byte yer kaplar.
+    printf("%zu\n", sizeof  +c);          // + işlemi olduğu için türü inte yükseltiliyor bu yüzden output 4tür.
+
+}
+*/
+
+
+
+
+//              örnek   -       9      -    sizeof operatörünün dizilerde kullanımı
+/*
+int main()
+{
+    char buf[200];
+    int a[50];
+    double da[20];
+
+    printf("sizeof(buf) = %zu\n",sizeof(buf));        // 200 * 1 byte =  200 byte bellekte yer kaplar.
+    printf("sizeof(a) = %zu\n",sizeof(a));            // 50  * 4 byte =  200 byte bellekte yer kaplar.
+    printf("sizeof(da) = %zu\n",sizeof(da));          // 20  * 8 byte =  160 byte bellekte yer kaplar.
+
+}
+*/
+
+
+
+//              örnek   -       10     -     sizeof ile array uzunluğu  
+/*
+int main()
+{
+    int a[]= { 2,5,7,1,34,6,9,44,678,123,45,33};
+
+    for (int i = 0; i<asize(a) ; ++i )
+        printf("%d ",a[i]);
+}
+*/
+
+
+
+//              örnek   -       11     -    
+
+int main()
+{
+    int a[5]={0,1,2,3,4};
+
+    for ( int i = -2 ; i < asize(a) - 2; ++i)
+        printf("%d ", a[i+2]);   
+        //output boştur. Yani hiç bir şey basmaz. Bunun nedeni asize(a) unsigned intdir. 
+        //int ile unsigned int işleme sokulursa yine unsigned int elde edilir.
+        //i<asize(a) operatöründe işlem işaretsize döner.
+        //Koşul sağlanamadığı için bu operatörde for döngüsü içine hiç girmiyor
+}
