@@ -17,7 +17,15 @@
 
 -int a[7] = { [5] = 27 , [4] = 44 , [1] = 3333 } şeklinde belli değerlere değer ataması yapabiliyoruz.
 
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------
 
                                  2)  SIZEOF OPERATOR                                      
                          ---------------------------------
+-2.öncelik seviyesindeki operatördür. Fonksiyon değil.
+-Compile Time operatördür.
+-Bir türün storage ihtiyacının kaç byte olduğunu bulmamızı sağlıyor.
+-Çıktısı bir unsigned tam sayı türüdür. Bu türe "size_t" denir.(Bu tür unsigned int,unsigned long int veya unsigned long long int olabilir.)
+-"%zu" şeklinde yazılır.
+-sizeof ( bir sayı türü, int,double vb gibi ) şeklinde syntax kuralı var.
+-sizeof operatörünün operandı herhangi bir ifadece olabilir.
+
