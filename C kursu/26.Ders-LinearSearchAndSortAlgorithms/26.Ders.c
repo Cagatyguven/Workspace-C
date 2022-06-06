@@ -157,4 +157,29 @@ int main()
 //                                                               SIRALAMA ALGORİTMALARI(SORT ALGORITHMS)
 
 
-//              ÖRNEK           -              6                   -               
+//              ÖRNEK           -              6                   -               bubble sort algoritması
+
+#define SIZE 10
+int main()
+{
+    int a[SIZE];
+
+    randomize();
+
+    set_array_random(a, SIZE);
+    print_array(a, SIZE);
+
+    for( int i = 0 ; i< SIZE-1 ; ++i ){
+        for ( int k = 0 ; k < SIZE-1-i ; ++k ){
+            if( a[k] < a[k + 1] ){//büyükten küçüğe veya küçükten büyüğe sıralama için burayı düzeltme yeterli
+                int temp = a[k];
+                a[k]=a[k+1];
+                a[k+1]=temp; 
+            }
+        }
+        print_array(a, SIZE);
+        getchar();
+    }
+    
+
+}

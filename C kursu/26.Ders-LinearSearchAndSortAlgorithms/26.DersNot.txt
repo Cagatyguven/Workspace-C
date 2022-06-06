@@ -1,5 +1,5 @@
-                                                        SIRALAMA ALGORİTMALARI(SORT ALGORITHMS)
-                                                    ----------------------------------------------
+                                                        1)SIRALAMA ALGORİTMALARI(SORT ALGORITHMS)
+                                                    --------------------------------------------------
 -Belirli bir kurala göre "dizi elemanlarının sıralandığı" problemler.
 -Sıralama algoritması "döngünün neresinde swap(takas) yapılacağını" belirlemektir.
 -Genelde O(nlogn) ile O(n^2) karmaşıklığı arasında değişmektedir.
@@ -8,3 +8,10 @@
  -            Yani yeni dizideki sıraları ilk dizideki sıralarına göre ayarlanmışsa
 
 -"Neden stable önemlidir", çünkü belli bir kritere sortladıktan sonra daha sonra farklı bir kritere göre de sıralamamıza olanak sağlar.
+
+
+1)A)bubble sort algoritması
+-----------------------------
+-O(n^2) karmaşıklığında bir algoritmadır.
+-Ardışık iki elemanı sıralama kriterine göre sıralıyorsunuz. (N-1) * (N-1) tane karşılaştırma yapılır.
+
