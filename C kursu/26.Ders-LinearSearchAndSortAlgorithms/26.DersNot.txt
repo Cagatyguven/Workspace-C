@@ -1,0 +1,10 @@
+                                                        SIRALAMA ALGORİTMALARI(SORT ALGORITHMS)
+                                                    ----------------------------------------------
+-Belirli bir kurala göre "dizi elemanlarının sıralandığı" problemler.
+-Sıralama algoritması "döngünün neresinde swap(takas) yapılacağını" belirlemektir.
+-Genelde O(nlogn) ile O(n^2) karmaşıklığı arasında değişmektedir.
+-Sıralama algoritması stable(kararlı) veya unstable(kararsız) olabilir.
+ - "Stable":  Örneğin aynı key değerine sahip dizi değerlerimiz var. Bunlar sort algoritması sonrası yan yana gelir. Fakat ilk halindeki haline göre bu değerler yan yana gelirse bu stable bir sort algoritmasıdır.
+ -            Yani yeni dizideki sıraları ilk dizideki sıralarına göre ayarlanmışsa
+
+-"Neden stable önemlidir", çünkü belli bir kritere sortladıktan sonra daha sonra farklı bir kritere göre de sıralamamıza olanak sağlar.
