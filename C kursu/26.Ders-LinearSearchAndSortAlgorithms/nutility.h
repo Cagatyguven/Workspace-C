@@ -13,6 +13,8 @@ int    ndigit(int);
 
 void set_array_random(int* p, int size);
 void print_array(const int* p, int size);
+void sort_array(int *p, int size);
+
 
 #include "nutility.c"
 

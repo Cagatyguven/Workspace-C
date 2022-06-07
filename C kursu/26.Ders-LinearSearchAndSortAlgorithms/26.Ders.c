@@ -158,7 +158,7 @@ int main()
 
 
 //              ÖRNEK           -              6                   -               bubble sort algoritması
-
+/*
 #define SIZE 10
 int main()
 {
@@ -168,18 +168,195 @@ int main()
 
     set_array_random(a, SIZE);
     print_array(a, SIZE);
-
-    for( int i = 0 ; i< SIZE-1 ; ++i ){
-        for ( int k = 0 ; k < SIZE-1-i ; ++k ){
-            if( a[k] < a[k + 1] ){//büyükten küçüğe veya küçükten büyüğe sıralama için burayı düzeltme yeterli
+    printf("\n");
+     
+    for( int i = 0 ; i < SIZE - 1 ; ++i ){
+        for ( int k = 0 ; k < SIZE - 1 - i ; ++k ){
+            if( a[k] > a[k + 1] ){//büyükten küçüğe veya küçükten büyüğe sıralama için burayı düzeltme yeterli
                 int temp = a[k];
-                a[k]=a[k+1];
-                a[k+1]=temp; 
+                a[k] = a[k+1];
+                a[k+1] = temp; 
+            }
+        }
+    }
+    print_array(a, SIZE);
+
+}
+*/
+
+
+
+
+//              ÖRNEK           -              7                   -               bubble sort algoritması -  küçükten büyüğe sıralama ve çift tek kendi arasında gruplama
+/*
+#define SIZE 10
+int main()
+{
+    int a[SIZE];
+
+    randomize();
+
+    set_array_random(a, SIZE);
+    print_array(a, SIZE);
+    printf("\n");
+     
+    for( int i = 0 ; i < SIZE - 1 ; ++i ){
+        for ( int k = 0 ; k < SIZE - 1 - i ; ++k ){
+            if( ( a[k] % 2 == 0 && a[k+1] % 2 != 0 ) || ( a[k] % 2 == a[k+1] % 2 &&  a[k] > a[k+1] ) ){//a[k] çift a[k+1] tek ise değiştir. İkisi de çift/tek ise büyük olanı sağa al dedik kısaca
+                int temp = a[k];
+                a[k] = a[k+1];
+                a[k+1] = temp; 
             }
         }
         print_array(a, SIZE);
-        getchar();
+    }
+}
+*/
+
+
+
+//              ÖRNEK           -              8        v1           -               quick sort(o(nlogn)) ile bubble sort(o(n^2)) kıyaslaması için süre hesaplama - quick
+/*
+#define     SIZE    100000
+int main()
+{   
+    int *p = (int *)malloc(SIZE * sizeof(int));
+
+    if(!p) {
+        printf("bellek yetersiz\n");
+        return 1;
+    }
+    //bubble sort başlangıç
+    set_array_random(p, SIZE);
+    //print_array(p, SIZE);
+    clock_t start = clock();
+    for (int i= 0 ; i < SIZE - 1; ++i){
+        for (int k= 0 ; k < SIZE - 1 - i; ++k){
+            if ( p[k] > p[k+1] ){
+                int temp = p[k];
+                p[k] = p[k+1];
+                p[k+1] = temp;
+            }
+    
+        }
+    
+    }
+    clock_t end = clock();
+    printf("bubble sort siralama tamamlandi toplam sure %f saniye\n",(double)(end-start)/ CLOCKS_PER_SEC);//bubble sort süresini hesaplama . 100BİN lik dizi için 18 saniye
+    getchar();
+    print_array(p, SIZE);
+    free(p); 
+}
+*/
+
+//              ÖRNEK           -              8        v2           -               quick sort(o(nlogn)) ile bubble sort(o(n^2)) kıyaslaması için süre hesaplama - bubble
+/*
+#define     SIZE    100000
+int icmp(const void* vp1, const void* vp2)
+{
+    return *(const int*)vp1 - *(const int*)vp2;
+}
+
+
+int main()
+{   
+    int *p = (int *)malloc(SIZE * sizeof(int));
+
+    if(!p) {
+        printf("bellek yetersiz\n");
+        return 1;
+    }
+    set_array_random(p, SIZE);
+    //print_array(p, SIZE);
+    clock_t start = clock();
+    qsort(p, SIZE, sizeof(int), &icmp);//standart c fonksiyonudur.
+    clock_t end = clock();
+    printf("bubble sort siralama tamamlandi toplam sure %f saniye\n",(double)(end-start)/ CLOCKS_PER_SEC);//quick sort süresini hesaplama . 100BİN lik dizi için 0.0116 saniye
+    printf("------------");
+    //print_array(p, SIZE);
+    free(p); 
+}
+*/
+
+
+
+
+
+
+
+//                                                              MERGE ALGORİTMASI
+
+
+//              ÖRNEK           -               9                    -          merge algoritması ile iki diziyi birleştirme
+/*
+#define     SIZE        20
+int main()
+{
+    int a[SIZE];
+    int b[SIZE];
+    int c[SIZE *  2];
+
+    randomize();
+    set_array_random(a, SIZE);
+    set_array_random(b, SIZE);
+
+    sort_array(a, SIZE);
+    sort_array(b, SIZE);
+    print_array(a, SIZE);
+    print_array(b, SIZE);
+
+    // 3. BİR ARRAY VERİLİYOR. Bu dizi 2 dizinin birleşimi olacak ve  küçükten büyüğe sıralanacak - bu merge algorithms ezberlenmeli
+    int idx_a= 0;
+    int idx_b= 0;
+    for( int i = 0; i < SIZE * 2 ; ++i){
+        if      (idx_a == SIZE )// iki diziden biri max eleman sayısına ulaşırsa diğer dizinin elemanına bakılır. Zaten 2*SIZE kadar işlem yapacağı için 2. dizinin maksimumunda otomatik döngü biter.
+            c[i] = b[idx_b++];
+
+        else if ( idx_b == SIZE )
+            c[i] = a[idx_a++];
+
+        else if  ( a[idx_a] < b[idx_b]) // ilk başta a ve b dizinin ilk elemanları değerleri karşılaştırılır. b büyükse a nın 2. elemanına geçilir
+            c[i] = a[idx_a++];
+
+        else
+            c[i] = b[idx_b++]; // b nin elemanı daha küçükse b'nin ikinci değerine veya diğer elemanlarına geçilir
     }
     
+    print_array(c, SIZE * 2);
+}
+*/
+
+
+
+
+
+
+
+//                                                              BINARY SEARCH ALGORITHM
+
+
+
+//                          ÖRNEK       -               10          -           Binary search örnek
+
+
+#define     SIZE        100
+int main()
+{
+    int a[SIZE];
+
+    randomize();
+    set_array_random(a, SIZE);
+    sort_array(a, SIZE);
+    print_array(a, SIZE);
+
+    int idx_first = 0;
+    int idx_last  = SIZE - 1;
+
+    
+
+
+
+
+
 
 }

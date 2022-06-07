@@ -3,6 +3,13 @@
 #include<time.h>
 #include<stdlib.h>
 
+
+static int icmp(const void* vp1, const void* vp2)
+{
+    return *(const int*)vp1 - *(const int*)vp2;
+}
+
+
 int isprime(int val)
 {
     if (val == 0 || val == 1)
@@ -52,11 +59,16 @@ void set_array_random(int* p, int size)
 void print_array(const int* p, int size )
 {
     for (int i = 0; i < size; ++i){
-        if(i != 0  && i % 20 == 0)
+        if(i != 0  && i % 20 == 0){
             printf("\n");
+        }
         printf("%3d ", p[i]);
     }
     printf("\n-------------------------------------------------------------------------\n");
 }
 
 
+void sort_array(int *p, int size)
+{
+    qsort(p, size, sizeof(int), &icmp);
+}
