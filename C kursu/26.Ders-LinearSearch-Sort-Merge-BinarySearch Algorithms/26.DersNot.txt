@@ -1,0 +1,35 @@
+                                                        1)SIRALAMA ALGORİTMALARI(SORT ALGORITHMS)
+                                                    --------------------------------------------------
+-Belirli bir kurala göre "dizi elemanlarının sıralandığı" problemler.
+-Sıralama algoritması "döngünün neresinde swap(takas) yapılacağını" belirlemektir.
+-Genelde O(nlogn) ile O(n^2) karmaşıklığı arasında değişmektedir.
+-Sıralama algoritması stable(kararlı) veya unstable(kararsız) olabilir.
+ - "Stable":  Örneğin aynı key değerine sahip dizi değerlerimiz var. Bunlar sort algoritması sonrası yan yana gelir. Fakat ilk halindeki haline göre bu değerler yan yana gelirse bu stable bir sort algoritmasıdır.
+ -            Yani yeni dizideki sıraları ilk dizideki sıralarına göre ayarlanmışsa
+
+-"Neden stable önemlidir", çünkü belli bir kritere sortladıktan sonra daha sonra farklı bir kritere göre de sıralamamıza olanak sağlar.
+
+
+1)A)bubble sort algoritması
+-----------------------------
+-O(n^2) karmaşıklığında bir algoritmadır.
+-Ardışık iki elemanı sıralama kriterine göre sıralıyorsunuz. (N-1) * (N-1) tane karşılaştırma yapılır.
+
+2)QUICK SORT ALGORITHMS
+------------------------
+-Standart c fonksiyonudur. Bubble ile arasında yaklaşık 1800 kat hız farkı vardır.
+
+                                                          2)MERGE ALGORITHM(BİRLEŞTİRME)
+                                                ----------------------------------------------
+-O(n) karmaşıklığında bir algoritmadır.
+-2 dizinin sıralı birleştirilmesidir. 
+
+
+                                                          3)BINARY SEARCH ALGORITHM(İKİLİ ARAMA ALGORİTMASI)
+                                                    ---------------------------------------------------------------
+-Sıralı bir veri yapısında bir değer  aramaya yönelik kullanılan algoritmadır.(örneğin bir sıralı dizi içinde 75 sayısını aramak için)
+-Dizinin ikiye bölünmesi ile tektek kontrol edilerek yapılır.
+-Örneğin dizinin tam ortasındaki sayı bizim değerimizden küçük. Sort bir array olduğu için dizinin ilk yarısı da küçüktür. Bu yüzden SIZE/2 işlemi yapmaktan kurtulur ve dizinin diğer yarısına da aynı işlemi yaparız.
+-İncelenen veri yapısının öğe sayısı iki katına da çıksa yapılacak işlem sadece 1 artar.
+-O(log(n)) karmaşıklığındadır.
+-Linear Search algoritması ile karıştırılmamalı.
