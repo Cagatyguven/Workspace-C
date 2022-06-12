@@ -1,0 +1,25 @@
+                                                        PARTITION ALGORITHM(BÖLÜMLEME)
+                                                    -----------------------------------
+-Bu algoritma, veri yapısını koyulan şartı sağlayanlar ve sağlamayanlar olmak üzere ikiye ayırıyor.(tek olanlar başa çift olanlar sona gelsin gibi)
+-"partition point":koşulu sağlamayanların ilk elemanının indexi.
+
+
+
+                                                            STRINGS(YAZILAR)
+                                                     -----------------------------------
+-C'de string yok.
+-C'de yazılar dizilerde tutuyor. Bu dizilerin türü char oluyor. char str[100] gibi
+-Dizinin son değeri olduğu belirtmek için null terminated deen değer atanıyor.  Örneğin çağatay kelimesinin her harfi diziye koyulduktan sonra son karakter sonrası özel bir değer atanıyor. Bu şekilde y harfinde bittiği anlaşılıyor.
+-Buna null karakter deniyor.('\0')
+-str = 'çağatay' şeklinde atama yapılamaz.
+-char str[100]= {'f','u','r','k','a','n'}; şeklinde ilk değer verebiliyoruz.
+-Standart c fonksyonu olan 'puts' ile de str değerler basılabilir. Variadic bir fonksiyon değil. Bu fonksiyon inputu 1 array ile sınırlı
+- örnek:                                                       
+    char s1[100] = "necati";
+    puts(s1); //ekrana necati basar.
+
+
+                                                        STRINGLER İLE ALAKALI TEMEL ALGORİTMALAR
+                                                -------------------------------------------------------
+
+ 

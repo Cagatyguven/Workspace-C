@@ -72,3 +72,17 @@ void sort_array(int *p, int size)
 {
     qsort(p, size, sizeof(int), &icmp);
 }
+
+
+void sgets(char* p)
+{
+    int c;
+
+    while((c = getchar()) != '\n')
+        *p++ = c;
+
+    *p = '\0';
+
+    
+}
+
