@@ -86,3 +86,10 @@ void sgets(char* p)
     
 }
 
+void clear_input_buffer(void)
+{
+    int c;
+
+    while((c=getchar()) != '\n' && c != EOF )
+        ;
+}

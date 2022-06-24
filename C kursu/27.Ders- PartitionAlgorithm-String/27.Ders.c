@@ -256,7 +256,7 @@ int main()
 
 
 
-//          ÖRNEK           -       12(mülakat sorusu)        -      bir cümle içinde bir karakterin adenin sayma (count algorithm)
+//          ÖRNEK           -       12(mülakat sorusu)        -    (count algorithm)  bir cümle içinde bir karakterin adenin sayma 
 /*
 #define SIZE  100
 
@@ -292,19 +292,44 @@ int main()
 
 
 //          ÖRNEK           -       13                        -     bir cümle içinde tüm karakterlerden kaçtane var sayma ve basma (küçük-büyük karakter farketmiyor)
-
-
+/*
 #define SIZE  100
 //    ASCII
 int main()
 {
   char s[SIZE];
-  int c;
   int cnt[26] = { 0 };//bu dizinin elemanlarını bir sayaç gibi kullanıcaz. 26 deme nedenimiz ascii'de 26 tane karakter var.
-
   printf("bir yazi girin: ");
   sgets(s);
-
   
+  for (int i = 0 ; s[i] != '\0' ; ++i){
+    if(isalpha(s[i])){
+        ++cnt[toupper(s[i]) - 'A'];
+    }
+  }
+  for (int i = 0; i < 26; ++i){
+    if (cnt[i] != 0){
+      printf("%c %d\n",'A' + i , cnt[i]);
+    }
+  }
 
+}
+*/
+
+
+
+
+//          ÖRNEK           -       14                        - 
+
+#define SIZE 500
+
+int main()
+{
+  char s[SIZE];
+
+
+  printf("aralarinda tek bir bosluk bulunan karakteri olan iki isim giriniz: ");
+  sgets(s);
+
+  printf("[%s]\n", s)
 }
