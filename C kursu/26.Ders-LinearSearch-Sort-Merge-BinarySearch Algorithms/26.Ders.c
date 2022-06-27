@@ -79,6 +79,7 @@ int main()
 // bu algoritmanın bu kadar ünlü olmasının nedeni "O(n) karmaşılığında çözülenbiliyor" olması. 
 /*
 
+
 #define SIZE 200
 
 int main()
@@ -432,7 +433,7 @@ int main()
 
 
 //                          ÖRNEK       -               11          -           iki array'in elemanlarının tamamının eşitliğini kontrol etme       
-
+/*
 #define     SIZE    5
 
 int main()
@@ -447,3 +448,4 @@ int main()
 
 
 }
+*/
