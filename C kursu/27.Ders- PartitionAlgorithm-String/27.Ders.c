@@ -319,8 +319,8 @@ int main()
 
 
 
-//          ÖRNEK           -       14                        - 
-
+//          ÖRNEK -     14(ödev)                        -   iki kelimeden oluşan cümlede kelimelerin yerini değiştirme(ilave bir dizi olmadan)
+/*
 #define SIZE 500
 
 int main()
@@ -331,5 +331,167 @@ int main()
   printf("aralarinda tek bir bosluk bulunan karakteri olan iki isim giriniz: ");
   sgets(s);
 
-  printf("[%s]\n", s)
+  printf("[%s]\n", s);//ahmet mehmet
+
+  // code
+
+  printf("[%s]\n", s);//mehmet ahmet
+}
+*/
+
+
+
+//          ÖRNEK -       15                  -  (REMOVE COPY ALGORITHM)belli bir dizi içinden bir karakteri silmek
+/*
+#define SIZE 500
+
+int main()
+{
+  char source[SIZE];
+  char dest[SIZE];
+
+  printf("bir yazi girin ");
+  sgets(source);//ankara adana antalya
+  int c;
+
+
+  printf("bir karakter girin ");
+  c=getchar(); //a karakteri
+
+  //dest dizisine source dizisindeki yazı kopyalanacak ancak c karakteri kopyalanmayacak
+  //iki index tutularak yapılabilir,bir index source dizisini dolaşmak için diğer index dest dizisine yazmak için
+
+  int write_idx=0;
+  
+  for(int i = 0 ; source[i] != 0 ; ++i ){
+      if(source[i] != c){
+        dest[write_idx] = source[i];
+        ++write_idx;
+      }
+  }
+
+  dest[write_idx] = 0;
+
+  printf("[%s] [%s]\n",source,dest);// [ankara adana antalya]        [nkr dn ntly]
+}
+*/
+
+
+
+//          ÖRNEK -         16                  - (REMOVE  ALGORITHM)belli bir karakter silme 
+/*
+#define   SIZE  500
+
+int main()
+{
+  char str[SIZE];
+  int c;
+
+
+  printf("bir yazi girin ");
+  sgets(str);
+
+  printf("silinecek karakteri girin: ");
+  c=getchar();
+  
+  printf("[%s]",str);
+  
+  int write_idx=0;
+  for (int i = 0; str[i] != 0 ; ++i){
+    if( str[i]!=c)){
+        str[write_idx++] = str[i];//str dizinin 0.değerinden itibaren değiştirme yapıyoruz
+    }
+  }
+  
+  str[write_idx]= '\0';
+
+  printf("[%s]\n",str);
+ 
+}
+*/
+
+
+
+//          ÖRNEK -         17                 - (REMOVE  ALGORITHM)sayı silme
+/*
+#define   SIZE  500
+
+int main()
+{
+  char str[SIZE];
+  int c;
+
+
+  printf("bir yazi girin ");
+  sgets(str);
+
+
+  
+  printf("[%s]",str);
+  
+  int write_idx=0;
+  for (int i = 0; str[i] != 0 ; ++i){
+    if( !isdigit(str[i])){//sayı değil ise str'nin dizisinin değerini değiştirme yapıyoruz.
+        str[write_idx++] = str[i];//str dizinin 0.değerinden itibaren değiştirme yapıyoruz
+    }
+  }
+  
+  str[write_idx]= '\0';
+
+  printf("[%s]\n",str);
+ 
+}
+*/
+
+
+
+//          ÖRNEK -         18                 - (REVERSE ALGORITHM) diziyi ters çevirme(sonuncu eleman 1., 1. eleman sonuncu eleman olacak)
+//dizinin elaman sayısının yarısı kadar işlem yapılması gerekiyor
+/*
+#define   SIZE  50
+
+int main()
+{
+  int a[SIZE];
+
+  randomize();
+  set_array_random(a,SIZE);
+  print_array(a,SIZE);
+
+  for(int i=0; i<(SIZE/2);++i){//arrayin eleman sayısının yarısı kadar işlem yeterli bu yüzden for döngüsünün işlem sayısı da böyle ayarlandı
+      int temp = a[i];
+      a[i] = a[SIZE - 1 - i];
+      a[SIZE - 1 - i]=temp;
+  }
+  printf("\n-------------------------------------------------------\n");
+  print_array(a,SIZE);
+}
+*/
+
+
+
+
+//          ÖRNEK -       19                - bir kelimenin karakterlerini ters sıralama
+
+#define SIZE  50
+int main()
+{
+  char str[SIZE];
+
+  printf("bir yazi girin:  ");
+  sgets(str);
+
+  printf("[%s]\n", str);
+
+  int len;
+
+  for(len = 0; str[len] != 0; ++len)
+      ;
+
+  for(int i = 0; i<len/2 ; ++i ){
+      char temp= str[i];
+      str[i]=str[len - 1 - i];
+      str[len - 1 - i]=temp;
+  }
+  printf("[%s]\n",str);
 }
