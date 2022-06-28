@@ -158,7 +158,7 @@ int main(){
 
 
 //            ÖRNEK       -         5          -  girilen sayılar asciiye göre basımı
-
+/*
 #define SIZE  100
 
 int main(){
@@ -175,3 +175,43 @@ int main(){
   printf("ival = %d\n", ival);
 
 }
+*/
+
+
+//        ÖRNEK     -               6           - SAYIYI YAZIYO DÖNÜŞTÜRMEK
+/*
+#define SIZE   100
+
+int main(){
+  int x;
+  char str[SIZE];
+
+
+  printf("bir tam sayi girin: ");
+  scanf("%d", &x);
+
+  int i = 0;
+  int temp=x;
+
+  while (temp != 0){//ters çevirdik
+    str[i++]= temp % 10 + '0';
+    temp /= 10;
+  }
+  str[i]=0;
+
+
+  for ( int k = 0 ; k < i/2 ; ++k){//ters çevirdik
+    char temp = str[k];
+    str[k]= str[i-k-1];
+    str[i-k-1]=temp;
+  }
+  printf("[%s]\n",str);
+
+}
+*/
+
+
+
+
+
+//                                                  

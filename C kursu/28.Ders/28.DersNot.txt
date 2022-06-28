@@ -1,0 +1,25 @@
+                                                                        IN LINE expansion
+                                                                  ----------------------------
+-Derleyicinin yaptığı optimizasyonlardan biri.
+-Fonksiyon küçük bir kod içeriyor fakat çok sık çağırılıyor ise in line expansion ile büyük maliyetten kurtulunuyor.
+-Bir fonksiyon çağırısında, derleyici çağrılan fonksiyon çağırısını görüyor ise ve uygun görüyor ise fonksiyon giriş çıkış kodunu linkera bir referans vermek yerine doğrudan linkerı bypass ediyor ve main fonksiyonuna fonksiyonun derlenmiş halini veriyor.
+-Fonksiyonel makro gibi değil.
+-Fonksiyon başına inline yazılmalı.
+
+a) Derleyicinin Inline Expansion Yapması İçin
+------------------------------------------------
+- Derleyici fonksiyon tanımını mutlaka görmeli
+- Derleyicinin yaptığı analizle bu açılımdan bir fayda sağlanacağı sonucunu çıkarmış olmalı
+- Optimizasyon ayarları(switchleri) 
+
+
+
+                                                                        POINTERS(GÖSTERİCİ)
+                                                              ------------------------------------
+-Adres anlamında kullanılan bir sözcük.
+-&x -> x'in adresi.
+-Eğer bir ifade T türünden bir nesnenin adresi anlamına geliyorsa o ifadenin türü T *
+-int türünden nesne adresi anlamına gelen bir ifadenin int * veya double ise double *....char *
+-Farklı türlerden nesnelerin adresleri farklı türlerdendir.
+-Eğer "belirli bir türden nesnenin adresini tutmak" için değişkene ihtiyacımız varsa böyle değişkenlere "pointer değişkenler" denir.
+-int* ptr -> ptr int türden bir nesnenin adresini( değer olarak ) tutacak bir nesne. Pointer to int ifade ile tanımlanır.
