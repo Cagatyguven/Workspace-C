@@ -1,0 +1,73 @@
+                                  1)POINTERS
+                              -------------------
+-Adres tutan değişkenlere pointer değişken denir.
+- T x;
+  Eğer bir ifade T türünden bir nesnenin adresi anlamına geliyorsa o ifadenin türü T *
+  int türden nesne adresi anlamına gelen ifadenin int *
+-int* ptr - int * ptr - int *ptr arasında fark yok
+
+-"Namespace'de" initiliaze edilen bir pointer "global pointerdır"
+
+-Klasik değişkenler için geçerli şeyler pointer değişkenlerde de geçerli.
+
+-Pointerlar iki kategoriye ayrılıyor;
+    a) Object pointers: nesnelerin adresi olan adresler. Char türden nesnenin adresi mesela
+    b) Function pointers: 
+
+
+-int x;
+ int *p;
+ p=x veya x=p gibi kullanımlar hatalı.
+
+
+-Adres operatörü ile oluşturulan ifadeler C/C++ dillerinde &value expressiondır.
+
+
+
+
+-int x = 10;
+ int* ptr= &x;//ptr değerine x'in değerini atadık
+ bu işlemden sonra:
+       ------------------------------------ 4800(x'in adresi)
+  x    |         10(xin değeri)           |
+       ------------------------------------
+
+       -----------------------------------  8900(ptr'nin adresi)
+  ptr  |            4800 (ptrnin değeri) |
+       -----------------------------------
+
+  oldu.
+
+ 
+
+-a[10] şeklinde bir dizimiz var. Bir ifade içinde a dersek bunun anlamı 0'ncı elemanın adresi demektir.
+ Yani; a = &a[0] demektir. Buna ArrayDecaydir.
+
+& -> adres operatörü
+* -> içerik operatörü/referans operatörü(Dereferencing)
+
+ 
+1)A) Dereferencing Operator(*) (Referans operatörü)
+-------------------------------------------------------- 
+-x= 45 ile *&x = 45 aynı şeydir.
+
+-int a[]={ 10 , 20 , 30 };
+ *a = 22;  bu ifade ile dizinin ilk elemanı değiştiriliyor. Yani int a[]= { 22,20,30} oluyor.
+         
+
+-int* ptr;
+ ptr ==> pointer
+ *ptr ==> pointee
+
+
+
+
+1)B) Pointerların kullanılma nedeni
+------------------------------------------
+-Eğer bir fonksiyonun sahip olduğu bir yerel değişkenin.
+-çağrılan  bir fonksiyon tarafından değiştirilmesi söz konusu ise.
+-Call by referance şarttır. Bunun için pointerlar kullanılır.
+
+
+
+                                  
