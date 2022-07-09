@@ -1,0 +1,82 @@
+                                    1)POINTERLAR
+                              -------------------------
+
+1)A)Pointer kullanım nedenleri
+-------------------------------
+-Return 1 değer döndürüyor. Pointerlar ile birden çok değer döndürülüyor.(kopyalama maliyetinden kurtuluyoruz)
+-Return ile dönmek yerine pointer kullanmak daha verimli. Bunun nedeni return için bellekte ayrı yer açılıyor.
+-Kopyalamanın maliyetli olma nedeni bellekte yer ayırma değil, kopyalanacak öğenin byte değerinin yüksek olması.
+
+
+1)B)Fonksiyonda parametre olarak pointer kullanılma nedenleri
+-----------------------------------------------------------------
+i)   -Kopyalama maliyetinden kurtulmak için. Bu tür parametrelerde "const anahtar sözcüğü" kullanılabilir.
+ii)  -C dilinde bir fonksiyon bir başka fonksiyon dizi gönderecekse bunun tek yolu call by reference zorunlu. Kopyalama yolu yoktur.
+     -C dilinde bir "fonksiyonun parametresi ve geri dönüş değeri dizi olamaz".
+iii) -Fonksiyonda birden çok değer döndürüleceği zaman bunu return ile yapmak mümkün değil bu yüzden birden çok değerde pointerlar kullanılır.
+
+
+                              2)CONST ANAHTAR SÖZCÜĞÜ VE CONST SEMANTİĞİ
+                        ------------------------------------------------------
+- Type Modifier: const, volatile, restrict
+i)   -const anahtar sözcüğü kullanılarak bir değişken initialize edildiğinde bu değişkenin değerinin bir daha değişmeyeceği anlamına gelir.
+     -Bu tekil bir değişken olmak zorunda değil. Array de olabilir. 
+
+ii)  -Kodu okuyan birisi const anahtar sözcüğünü gördüğü zaman bu değişkenin değiştirilmemesi gerektiğini anlar.      
+
+iii) -C dilinde const anahtar sözcüğü ile tanımlanan değişkenler sabit ifadesi gereken yerlerde kullanılamıyorlar.
+     -dizi boyutu const değişken olamaz.
+
+
+2)A)Pointer Değişkenler Ve Const
+---------------------------------
+i)   -int "const" * "const" ptr = &x;  const iki farklı yere yerleştirilebiliyor. İkisine aynı anda da yerleştirildiği senaryo da var.
+     -Bu ikisi çok farklı anlama   gelmekte.
+     -const int * ptr == int const * ptr; bu ikisi aynı anlama gelmekte.
+
+ii)  const pointer: int * const pointer; (high level const)
+     ---------------
+     -Böyle bir initialize işlemi yapıldığında "ptr'nin değeri hiç değişmeyecek denilmiş olunuyor".
+     -int * const ptr = &x; denildiğinde bunun anlamı "ptr hep x'in adresini göstericek demektir". Başka bir değer atanırsa bu syntax hatasıdır.
+     -Fakat bu demek "olmuyorki x'in değeri değiştirilemez". X=10 ise daha sonra *ptr=100; denilebilir.
+
+iii)  pointer to const int: int const/const int * ptr; (low level const)
+      -------------------------
+     -*ptr ile adres üzerinden ulaşılan "değer değiştirilemiyor". Yani "const pointer'ın tam tersi". x= 10 ike daha sonra *ptr=100 yapılamaz.
+     -ptr adeta diyor ki: benim vasıtamla benim gösterdiğim nesneye salt okuma(access) amaçlı erişebilirsin.
+     -*ptr'ye atama yapıldığında bu syntax hatasıdır.
+     -fonksiyonun parametresini pointer to const yaptığınızda(void func(const int * ptr)) okuyana diziyi gönder fonksiyon sadece ona salt okuma yapacak sözü veriliyor.
+     -*ptr ile değer değiştirilemez. Ama ptr = &y ile farklı bir adresi tutması sağlanabilir. ( Tamamen const pointerın tersi)
+     -*ptr ile x'in değeri değiştirilemez demiştik. Diğer yollarla değiştirilebilir. En basitinden x=25 dememizde bir sorun yok. Başka pointerlar ile de değiştirilebilir.
+
+
+- Bu iki türün akılda kalması için söylenen cümle:
+   +const ne'den önce gelirse const olan odur.
+
+
+iv)  Const pointer to const: const int* const ptr= &x;
+     ---------------------------
+     -Const anahtar sözcüğü iki yerde birden de kullanılabilir. 
+     -Bu pointer türünde hem adres hem değer değiştirilemiyor.
+     -*ptr=134; ve ptr= &y denilemiyor.
+
+
+
+v)   Parametresi pointer olan fonksiyonlar
+     -------------------------------------
+     -Amaç adresdeki nesneyi değiştirmeye yönelik ise const anahtar sözcüğü olmamalı.
+     -Değiştirilmemesi istenen fonksiyonlara getter veya accessor fonksiyonlar denir. Sadece salt okuma amaçlı kullanılıyor adres.
+
+
+
+
+
+                                    3) POINTER ARİTMETİĞİ
+                              --------------------------------
+-Operatörlerin operantlarının pointerlar kullanıldığında uygulanan kurallara "pointer aritmetiği" deniyor.
+-C dilinde
+   a) bir adres ile bir tam sayı "toplanabilir". Bu işlemlerin sonucu "adrestir".(legal)   ptr + i
+   b) bir tam sayı ile bir adres "toplanabilir". Bu işlemlerin sonucu "adrestir".(legal)   i   + ptr
+   c) bir adresten bir tam sayı "çıkarılabilir". Bu işlemlerin sonucu "adrestir".(legal)   ptr - i
+   d) bir tam sayıdan bir adresin "çıkarılması geçersizdir".(legal değil) 
+
