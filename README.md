@@ -1,4 +1,4 @@
 
 # Workspace
 
-Necati Hoca - C kursu
+EĞİTİMLER
