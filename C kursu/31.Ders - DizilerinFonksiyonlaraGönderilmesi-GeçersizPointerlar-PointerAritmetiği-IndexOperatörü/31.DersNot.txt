@@ -1,0 +1,79 @@
+                              1) INDEX OPERATÖRÜ
+                          --------------------------
++[] dediğimiz operatördür index operatörüdür.(not: '*' operatörü asterisktir. )
+
++index operatörünün bir operatörünün adres dğer operatörünün tam sayı olması gerekiyor.                              
+
++a[i] ile i[a] aynı şeydir bunun nedeni ; *(a+i) == *(i+a)
+
++"*ptr" ile "ptr[0]" aynı şeydir.
+
++int a[10] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+ int* ptr = a+5;                            
+ bu durumda ptr[0] = 5'tir. ptr[-3] 2dir. ptr[-10] undefined behaviordır. Hangi adresi gösterdiği belli değil                           
+ ptr[-3] == *(ptr-3) aynı şeydir.
+ 
++Kısaca diziyi taşırsaydık undefined behavior olur
+
+
++Özet: 
+      - ptr[n]     ile     *(ptr + n)
+      - &ptr[n]    ile     ptr+n
+      - ptr[0]     ile     *ptr            
+
+      yazmak arasında fark yok
+
+                                            
+
+                              2)POINTER ARİTMETĞİ
+                          --------------------------
+i)      int x = 10;
+        int* ptr = &x;
+        ++ptr; dememizde bir sakınca yok.
+    
+        ama...
+
+        *ptr dediğimiz an bu tanımsız davranış olur. Çünkü o adres ile bizim işimiz yok.
+        o adres bizim değil. Bize ait olmayan bellek alanına ulaşmaya çalışmak undefined behavior.
+
+
+ii)     C ve C++ dillerinde "iki adresin(pointerın) toplanması syntax hatasıdır" .
+
+
+iii)    C dilinde "2 adresin farkı" işaretli türden "tam sayıdır".
+        
+
+
+                               3) DİZİLERİN FONKSİYONLARA GÖNDERİLMESİ
+                        ----------------------------------------------------
+-Bir diziyi, bir fonksiyona geçmek için call by reference mecburidir.
+-Dizi salt okuma amaçlı kullanılacaksa "const" anahtar sözcüğü mutlaka kullanılmalı.
+-Fonksiyonların parametresinin pointer olmasının 2 yolu var;
+    a)void abc(int* p);
+    b)void abc(int p[]); //içi boş olmalı
+    -derleyici açısından ikisi arasında hiç fark yok. Bu bir fonksiyon demek değildir.
+
+
+
+                                4) GEÇERLİ VE GEÇERSİZ POINTERLAR( VALID & UNVALİD)
+                            --------------------------------------------------------------
+-Kullanılabilir/kullanılamaz pointerlar da denilebilir.
+-Hangi pointerlar geçersizdir?;
+   i)   Çöp değerdeki pointerlar. (int* ptr; mesela bu pointer şu an çöp değerde)
+-Hangi durumda geçerlidir?;
+   i)   Pointer değişken hayattaki bir nesnenin adresini tutuyor ise
+   ii)  Pointer değişken bir dizinin bittiği yerin adresini tutuyor ise
+   iii) Pointer değşkenin değeri NULL pointer ise.
+ 
+
+                                 5) POINTERLAR VE KARŞILAŞTIRMA İŞLEMLERİ
+                            ----------------------------------------------------
+-Pointerlar karşılaştırma operatörlerinin, operantları olabilirler.( <, <=, ==, != ......)
+-İki pointer == ve != operatörleri ile "karşılaştırılabilir".
+-(== OPERATÖRÜ)İki pointer'ın eşitliğinin doğru sonuçlaması için 3 durumun gerçekleşmesi gerekir;
+    i)   Her iki pointer da aynı nesnenin adresi olmalı
+    ii)  Her iki pointer da aynı dizinin bittiği yerin adresi olmalı
+    iii) Her iki pointer'ın değeri de NULL pointer ise.
+-(<, >,=> OPERATÖRLERİ)
+    i)   İki pointerın kıyaslanması için bu ikisinin aynı dizideki elemanları gösteresi gerekir. Öteki türlü bir anlamı yoktur.
+    
