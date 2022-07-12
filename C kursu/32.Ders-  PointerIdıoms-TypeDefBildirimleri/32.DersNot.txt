@@ -1,0 +1,73 @@
+-Hatırlatma: & operandı l-value exp olmalı,ifadenin kendisi r-value
+             * operandı adres olacak. l-value
+             ++ operandı nesne olacak. operandı l-value olmalı.Kendisi r ve l olabilir.
+
+
+                               1)  POINTER IDIOMS
+                            -------------------------
+i)    +- &x++ geçersiz bir ifadedir. x++ bir r value expressiondır. & operandı l-value olmak zorundaydı.
+      +- &++x geçersiz bir ifadedir. ++x bir r value expressiondır. & operandı l-value olmak zorundaydı.
+      +- ++&x geçersiz bir ifadedir. &x bir r value expressiondır. ++ operatörünün operandı l-value olmak zorundadır.
+
+    -Yani... &x++, &++x, ++&x bizim idiomlarımız değil. Bunları kullanmıyoruz.
+
+
+ii)   +- *ptr++ = 99 geçerli bir ifadedir. ptr bir nesne, ++ operatörü olabilir. ptr++ r value expressiondır. ptr++ *'ın operandı olabilir.
+          bu işlemin açılımı şu: *ptr = 99;
+                                 ptr = ptr +1;   
+          not: ++ operatörünün ismi dizi ismi olamaz. *array++ ifadesi hatalıdır.
+
+      +- *++ptr = 99 geçerli bir ifadedir. ptr bir nesne, ++ operatörü olabilir. ++ptr r value expressiondır. ++ptr *'ın operandı olabilir.
+          bu işlemin açılımı şu:  ptr = ptr +1;
+                                  *ptr = 99;
+                                
+      +- ++*ptr; geçerli bir ifadedir. *ptr, ++'nın operandı ve *ptr, dizinin ilk elamnı yani bu işlem dizinin ilk elemanını arttırıyor.
+                          
+
+KISACA:
+-------
+
+a) *ptr++ -> ptr'nin gösterdiği nesneye eriş daha sonra ptryi bir arttır.
+
+b) *++ptr -> ptr'nin gösterdiği nesneden bir sonraki nesneye eriş demek.
+
+c) ++*ptr -> *ptr nesnesini bir arttır.
+
+
+ 
+
+
+
+                                2) TÜR EŞ İSİM BİLDİRİMLERİ  (typedef bildirimleri)
+                            ----------------------------------------------------------
+i)      -3 alt başlıktan oluşacak: typedef bildirimleri-1, typedef bildirimleri-2, typedef bildirimleri-3
+
+ii)     -type alias(eş isim): öyle bir isimki bir türün yerine geçebilenv 
+    
+iii)    -typedef anahtar sözcüğümüz var.
+        -Syntax:
+                 typedef eş-isim-verilmek-istenentür eş-isim 
+                 örnek: typedef int word;
+
+iv)     -typedef int* IPTR; şeklinde bildirim yaptık.
+         IPTR p1,p2; dediğimizde bu aslında int *p1, *p2; demek oluyor.
+
+v)      -typedef bildirimleri global scope olabilir veya blok scope olabilir. Nerde bildirildiği önemlidir.
+
+vi)     -karışık typedef bildirimleri için 3 adımı takip etmek gerekiyor;
+        a) hangi türe eş isim verecekseniz o türden bir değişken tanımlayın. 
+        b) tanımlamanın başına typedef anahtar sözcüğünü yazın
+        c) değişkenin yerine tür eş ismini koyun. 
+
+2)A) Neden typedef bildirimi yapılıyor?
+---------------------------------------
+-Bir türe daha daraltılmış özel bir anlam yüklemek için. Bu sayede kodu okuyana da yazana da kolaylık sağlar.
+(mesela programda sık sık para birimlerini kullanılıyorum. para bildirimi kullanıldığını göstermek için "typedef double dolar" gibi bir tanımlama yapabilirim. )
+
+-Kodlarada türlere ilişkin değişiklik yapmayı kolaylaştırıyor.
+(kodda sayaç değişken çok fazla kullanılıyor "int cnt = 0;, int prime_cnt=0" gibi.)
+(Daha sonra bunları long long int yapmak istediğimizde tüm count değişkenlerinin türünü elle değiştirmek yerine en başta typedef int CNT; ifadesini typedef long long CNT;)
+
+
+2)B) Standart Kütüphane Ve typedef bildirimleri
+------------------------------------------------

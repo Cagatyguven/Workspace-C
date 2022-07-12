@@ -2,7 +2,7 @@
                           --------------------------
 +[] dediğimiz operatördür index operatörüdür.(not: '*' operatörü asterisktir. )
 
-+index operatörünün bir operatörünün adres dğer operatörünün tam sayı olması gerekiyor.                              
++index operatörünün bir operatörünün adres diğer operatörünün tam sayı olması gerekiyor.                              
 
 +a[i] ile i[a] aynı şeydir bunun nedeni ; *(a+i) == *(i+a)
 
@@ -16,7 +16,7 @@
 +Kısaca diziyi taşırsaydık undefined behavior olur
 
 
-+Özet: 
++Özet:          "ÖNEMLİ"
       - ptr[n]     ile     *(ptr + n)
       - &ptr[n]    ile     ptr+n
       - ptr[0]     ile     *ptr            
@@ -76,4 +76,3 @@ iii)    C dilinde "2 adresin farkı" işaretli türden "tam sayıdır".
     iii) Her iki pointer'ın değeri de NULL pointer ise.
 -(<, >,=> OPERATÖRLERİ)
     i)   İki pointerın kıyaslanması için bu ikisinin aynı dizideki elemanları gösteresi gerekir. Öteki türlü bir anlamı yoktur.
-    

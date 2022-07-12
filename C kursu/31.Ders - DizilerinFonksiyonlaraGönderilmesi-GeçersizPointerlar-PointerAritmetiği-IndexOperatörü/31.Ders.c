@@ -36,11 +36,11 @@ int main(){
 
   ptr[0] = 87;
 
-  printf("x= %d\n",x);
+  printf("x= %d\n",x);  87
 
   *ptr = 88;
 
-  printf("x = %d\n",x);
+  printf("x = %d\n",x);   
    
   // *ptr ile ptr[0] aynı anlama gelmektedir. ikisiyle de x nesnesi değiştiriliyor. 
 
