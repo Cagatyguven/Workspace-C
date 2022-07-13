@@ -196,6 +196,21 @@ int main(){
 */
 
 
+//                                        Standart Kütüphane Ve typedef bildirimleri
 
 
-//        ÖRNEK     -   8         -
+
+//        ÖRNEK     -   8         - string.h kütüphanesi size_t
+
+#include<string.h>
+int main(){
+
+  char str[100];
+
+  size_t len;
+
+  len = strlen(str);
+
+  printf("%d",len); // 7
+
+}

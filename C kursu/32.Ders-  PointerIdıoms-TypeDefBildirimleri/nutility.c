@@ -26,10 +26,12 @@ int isprime(int val)
      
 }
 
+
 void pline(void)
 {
     printf("\n-----------------------------------------------------------------------------------\n");
 }
+
 
 int ndigit(int val)
 {
@@ -46,7 +48,8 @@ int ndigit(int val)
     return digit_count;
 }
 
-void set_array_random(int* p, int size)
+
+void set_array_random(int* p, size_t size)
 
 
 {
@@ -56,9 +59,8 @@ void set_array_random(int* p, int size)
 }
 
 
-void print_array(const int* p, int size )
-{
-    for (int i = 0; i < size; ++i){
+void print_array(const int* p, size_t size ){
+    for (size_t i = 0; i < size; ++i){
         if(i != 0  && i % 20 == 0){
             printf("\n");
         }
@@ -68,7 +70,7 @@ void print_array(const int* p, int size )
 }
 
 
-void sort_array(int *p, int size)
+void sort_array(int *p, size_t size)
 {
     qsort(p, size, sizeof(int), &icmp);
 }
@@ -85,6 +87,15 @@ void sgets(char* p)
 
     
 }
+
+
+void swap(int* px, int* py){
+    int temp = *px;
+    *px = *py;
+    *py=temp;
+
+}
+
 
 void clear_input_buffer(void)
 {

@@ -59,6 +59,8 @@ vi)     -karışık typedef bildirimleri için 3 adımı takip etmek gerekiyor;
         b) tanımlamanın başına typedef anahtar sözcüğünü yazın
         c) değişkenin yerine tür eş ismini koyun. 
 
+
+
 2)A) Neden typedef bildirimi yapılıyor?
 ---------------------------------------
 -Bir türe daha daraltılmış özel bir anlam yüklemek için. Bu sayede kodu okuyana da yazana da kolaylık sağlar.
@@ -68,6 +70,35 @@ vi)     -karışık typedef bildirimleri için 3 adımı takip etmek gerekiyor;
 (kodda sayaç değişken çok fazla kullanılıyor "int cnt = 0;, int prime_cnt=0" gibi.)
 (Daha sonra bunları long long int yapmak istediğimizde tüm count değişkenlerinin türünü elle değiştirmek yerine en başta typedef int CNT; ifadesini typedef long long CNT;)
 
+-Karmaşık bildirimlerin anlaşılmasını ve yapılmasını sağlamak için
+
 
 2)B) Standart Kütüphane Ve typedef bildirimleri
 ------------------------------------------------
+-Bazı tür eş isimleri birden fazla kütüphanede bulunmakta. Mesela: size_t , string-stdio ve stddef kütüphanelerinde bulunmakta.
+
+
+2)C) size_t standart typedef ismi
+------------------------------------
+-sizeof operatörünün ürettiği değerin türüdür.
+
+-sizeof-> unsigned int, unsigned long veya unsigned long long olabilir. Bu derleyiciden derleyiciye değişir.
+-Kütüphanlerin hepsinde ortaktır.
+
+-standart kütüphane "size_t türünü nerelerde kullanıyor"?
+a) Bazı fonksiyonlar parametre değeri olarak size_t istiyorlar
+b) Eğer standart bir C fonksiyonu dizi boyutu istiyorsa (dizi boyutu türü)
+c) Bir fonksiyonun geri dönüş değeri  yada parametresi bir yazının uzunluğunu istiyor ise (yazı uzunluğu)
+d) Bazı fonksiyonlar parametre değeri olarak bir karakterden şu kadar - bir tam sayıdan şu kadar gibi istekleri oluyor. (tane-adet türü)
+
+-Mesela qsort fonksiyonu 2. ve 3. parametresi türü size_t'dir.
+
+
+2)D) int32_t/int8_t gibi türler(stdint kütüphanesi)
+-------------------------------------------------------
+-stdint.h kütüphanesinde int32_t gibi türler var. Gömülü sistemlerde işe yaramakta olan ifadelerdir.
+-kod yazarken daha çok bytelara odaklanıyoruz. Değişken türünü çok fazla umursamıyoruz.
+-Buradaki 32,16,8 biti temsil etmekte. 32 bit -> 4 byte.
+
+
+2)E) 
