@@ -1,0 +1,64 @@
+
+
+-------------------------------------------------------------------------------------------------------------------------------
+"ÖNEMLİ NOT":
+
+   int a[5] = { 0 };
+   const int primes[] = { 2, 3, 4, 5, 11, 13};
+   const int x = 10;
+   int y = 20;
+   int* ptr = &y;
+   const int* cp = &y
+
+   böyle bir tanımlama yapıldığında;
+   -&x     -> const int *
+   -&y     -> int *
+   -ptr    -> int *
+   -cp     -> const int *
+   -a      -> int *
+   -primes -> const int *
+
+   mesela:
+
+   const int x=10;
+   int* ptr = &x; ifadesi kesinlikle yanlış ptr'yi de "const yapmamız gerekir".
+-------------------------------------------------------------------------------------------------------------------------------
+                                                
+                                                1) ADRES DÖNDÜREN FONKSİYONLAR
+                                            -------------------------------------                                            
+i)    -Adres döndüren bir fonksiyon asla otomatik ömürlü bir nesne adresi döndürmemelidir. (bknz: örnek-3)
+      -Bundan kurtulmak için static ömürlü yerel değişken kullanılır ve standart kütüphanelerde de bu kullanılmaktadır.
+
+
+ii)   -birden fazla char için tek fonksiyon çağırdığımızda son çağrı için alınan değeri kullanabiliriz(statik olması nedeniyle)
+      -bunun çözümü string literallerdir.(ileride görücez )
+
+
+
+                                                      2) NULL POINTER
+                                          -------------------------------------------- 
+-Büyük harf ile yazılan "NULL" bir "makrodur". Bir sembolük sabittir. 
+-Bir keyword veya identifier değil. Ön işlemciyi ilgilendiriyor. Derleyiciyi değil.
+-NULL makrosu C'nin bazı başlık dosyalarında tanımlanmıştır.(stdio.h,stdlib.h,string.h,stddef.h,time.h... gibi gibi )
+-NULL bir adres sabitidir.(NULL pointer diye okunursa daha iyi olur)
+-Bu adres sabiti pointer değişkenlere ilk değer olarak verilebilir ya da atanabilir.
+-NULL pointer değerini asla pointer olmayan bir değişkene atamayın!!!!
+-Bir pointer değişkenin değeri NULL pointer ise bu pointer geçerli (valid) pointer'tır.
+-Değeri NULL pointer olan bir değişken (semantik olarak ) hiçbir nesneyi göstermeyen bir değişkendir.
+
+-"ÖRNEK":
+         int x = 10;
+         int a[5];
+
+         int* p;             geçersiz pointer
+         int* q = NULL;      geçerli pointer
+         int* ptr = a+5;     geçerli pointer
+         int* px = &x;       geçerli pointer
+
+-Değeri NULL pointer olan bir pointer değişkeni, *ptr veya ptr[i] şeklinde kullanmak "undefined behaviordır".
+-Yine bu pointer türünü "toplama, çıkarma, ++, -- operandı" olarak kullanırsa "undefined behaviordır"
+
+"NOT": ilk değer verilmemiş global değişkenler ve statik yerel pointer değişkenler hayata NULL pointer değeri ile başlar.
+
+"NOT": C'de lojik ifade beklenen yerlerde bir adres ifadesi kullanılabilir. if(ptr) gibi. Lojik yorumlama bu durumda pointer değerinin NULL pointer olup olmamasına göre yorumlanır.
+       
