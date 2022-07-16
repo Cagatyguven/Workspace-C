@@ -21,7 +21,7 @@ ii)   +- *ptr++ = 99 geçerli bir ifadedir. ptr bir nesne, ++ operatörü olabil
           bu işlemin açılımı şu:  ptr = ptr +1;
                                   *ptr = 99;
                                 
-      +- ++*ptr; geçerli bir ifadedir. *ptr, ++'nın operandı ve *ptr, dizinin ilk elamnı yani bu işlem dizinin ilk elemanını arttırıyor.
+      +- ++*ptr; geçerli bir ifadedir. *ptr, ++'nın operandı ve *ptr, dizinin ilk elamanı yani bu işlem dizinin ilk elemanını arttırıyor.
                           
 
 KISACA:
@@ -99,6 +99,3 @@ d) Bazı fonksiyonlar parametre değeri olarak bir karakterden şu kadar - bir t
 -stdint.h kütüphanesinde int32_t gibi türler var. Gömülü sistemlerde işe yaramakta olan ifadelerdir.
 -kod yazarken daha çok bytelara odaklanıyoruz. Değişken türünü çok fazla umursamıyoruz.
 -Buradaki 32,16,8 biti temsil etmekte. 32 bit -> 4 byte.
-
-
-2)E) 

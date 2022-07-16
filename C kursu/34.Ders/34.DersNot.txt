@@ -1,0 +1,15 @@
+                                                    1) NULL POINTER
+                                              -------------------------
+1)A) NULL POINTER ne işe yarar?
+--------------------------------
+i) Adres döndüren fonksiyonun işini yapamama durumunda , "ben işimi yapamadım" bilgisini fonksiyonu çağırana iletmek için NULL pointer kullanılır.
+
+ii) Arama fonksiyonları C'de(çoğunlukla) adres döndürüyorlar. Aranan değer bulunursa o değere sahip nesnenin adresini, bulunamazsa NULL pointer döndürüyorlar.
+
+iii) Bir fonksiyonun parametresinin bir pointer olması durumunda böyle bir fonksiyona nesne adresi göndermemiz gerekir. NULL pointer gönderilirse tanımsız davranış olur.
+     Ancak bazı fonksiyonlar çağrılan kodların NULL pointer göndermelerini bir seçenek/opsiyon olarak veriyorlar.
+
+iv)  Flag mantığında pointerların kullanımında NULL pointer da kullanılıyor.
+
+v) Dinamik bellek yönetiminde kullanılıyor.
+
