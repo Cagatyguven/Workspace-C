@@ -13,3 +13,25 @@ iv)  Flag mantığında pointerların kullanımında NULL pointer da kullanılı
 
 v) Dinamik bellek yönetiminde kullanılıyor.
 
+                                                  
+                                             2) YAZILAR ÜSTÜNDE İŞLEM YAPAN FONKSİYONLAR
+                                        ------------------------------------------------------
+-Bu fonksiyonlarda, parametrelerde dizi boyutu olmaz. Sadece dizi adresi parametre olarak alınır. "örnek:" void myputs(const* p);
+-Fakat Eğer bir fonksiyon;
+     + bir yazıyı bir diziye yerletirmeye niyetliyse
+     + bir yazıyı( büyütme ihtimali ile ) değiştirme niyetindeyse 
+  eğer dizinin boyutunu almaz ise taşırma riskini içerir.
+
+    
+       
+
+2)A) C Standart string.h Kütüphanesi
+-----------------------------------------
+-Genelde fonksiyonlarının hepsi str ile başlıyor.(strlen,strchr,strrchr,strstr,strpbrk,strspn,srtcspn,strcpy,strcat,strcmp,strncpy,strtok,strncat)
+
+-strlen:  yazının uzunluğunu hesaplayan fonksiyon
+ strcpy:  yazıyı bir yerden bir yere kopyalayan fonksiyon
+ strcmp:  2 yazıyı karşılaştıran fonksiyon
+ strtok:  yazıyı parçalayan fonksiyon
+ strchr: yazıdaki belli bir karakteri baştan başlayarak arıyor
+ strrchr: yazıdaki belli bir karakteri sondan başlayarak arıyor
