@@ -1,0 +1,26 @@
+                                1)  STRING FONKSİYONLARI
+                            --------------------------------
++++---+++---++++---+++---+++---++++---++++++---+++---++++---+++
+
+"NOT"
+-----
+-while(*p != '\0')
+      ++p;
+
+-while(*p)
+      ++p;
+
+-p += strlen(p);
+
+-p = strchr(p,'\0');
+
+-while(*p++)
+      ;
+ --p;
+
+-if(*p){
+    while(*++p)
+      ;
+}                     ifadeleri ile pointer ifadesini dizi sonundaki '\0' adresini göstermesi sağlanıyor.
+
++++---+++---++++---++++++---+++---++++---++++++---+++---++++---+++

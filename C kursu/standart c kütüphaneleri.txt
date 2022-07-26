@@ -25,9 +25,9 @@
 
 -<string.h>
     -size_t strlen(const char* p); (uzunluk bulma)
-    -char* strchr(const char* p,int c)  (bir yazıda bir karakter arama fonksiyonu(o karakterin ilk bulunduğu yeri bulur))
-    -char* strrchr(const char* p,int c)  (bir yazıda bir karakter arama fonksiyonu(o karakterin son bulunduğu yeri buluyor))
-    -
+    -char* strchr(const char* p,int c);  (bir yazıda bir karakter arama fonksiyonu(o karakterin ilk bulunduğu yeri bulur))
+    -char* strrchr(const char* p,int c);  (bir yazıda bir karakter arama fonksiyonu(o karakterin son bulunduğu yeri buluyor))
+    -char* strstr(const char* psource, const char* psearch; (bir yazı içinde bir yazıyı arıyor) (bulursa bulduğu yerin adresi, bulamazsa NULL pointer)
     -
     -
     -
