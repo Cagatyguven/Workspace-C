@@ -1,8 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include<ctype.h>
-#include<math.h>
-#include<time.h>
+C
 #include "nutility.h"
 
 #define SIZE 100

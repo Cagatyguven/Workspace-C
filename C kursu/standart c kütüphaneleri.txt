@@ -25,10 +25,13 @@
 
 -<string.h>
     -size_t strlen(const char* p); (uzunluk bulma)
+    "arama fonksiyonları"
     -char* strchr(const char* p,int c);  (bir yazıda bir karakter arama fonksiyonu(o karakterin ilk bulunduğu yeri bulur))
     -char* strrchr(const char* p,int c);  (bir yazıda bir karakter arama fonksiyonu(o karakterin son bulunduğu yeri buluyor))
-    -char* strstr(const char* psource, const char* psearch; (bir yazı içinde bir yazıyı arıyor) (bulursa bulduğu yerin adresi, bulamazsa NULL pointer)
-    -
-    -
-    -
-    -
+    -char* strstr(const char* psource, const char* psearch); (bir yazı içinde bir yazıyı arıyor) (bulursa bulduğu yerin adresi, bulamazsa NULL pointer)
+    -char* strpbrk(const char* psource, const char *pchars ); ( bir yazı içinde birden çok karakter aramak istediğimizde kullanıyoruz)
+    "kopyalama fonksiyonları"
+    -char* strcpy(char* pdest, const char* psource);  (bir diziyi diğer diziye kopyalamak için kullanılan fonksiyon)
+    -char* strcat(char* pdest, const char* psource);  (bir yazının sonuna başka bir yazıyı ekliyor)
+    
+    -int strcmp(const char *pleft,const char *pright)

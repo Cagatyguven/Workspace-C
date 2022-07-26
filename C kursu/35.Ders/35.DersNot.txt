@@ -1,5 +1,5 @@
-                                1)  STRING FONKSİYONLARI
-                            --------------------------------
+                                           1)  STRING FONKSİYONLARI
+                                       --------------------------------
 +++---+++---++++---+++---+++---++++---++++++---+++---++++---+++
 
 "NOT"
@@ -22,5 +22,48 @@
     while(*++p)
       ;
 }                     ifadeleri ile pointer ifadesini dizi sonundaki '\0' adresini göstermesi sağlanıyor.
+ 
++++---+++---++++---++++++---+++---++++---++++++---+++---++++---+++---+++++----++++--+++----+++-----+++++++++
 
-+++---+++---++++---++++++---+++---++++---++++++---+++---++++---+++
+
+1)A)strcpy(char* dest, const char* str)   (örnek-7)
+-------------
++psource adresindeki yazıyı pdest adresine kopyalamanın en kolay idiomatik yolu:
+      while(*pdest++ = *psource++); yapısıdır.
++C99 standartları ile birlikte fonksiyon parametresi değişmiştir. restrict anahtar sözcüğü eklenmiştir.(örnek-8)
+ char *strcpy( char *restrict dest, const char *restrict str)
+
+-----------------------------------------------------------------------------------------------------------
+"NOT":
+-overlapped blocks(kesişen bloklar):  2 bellek bloğu var ve bunların "kesişim alanı" var. Böyle bloklara "overlapped blocks" denir.
+------------------------------------------------------------------------------------------------------------
+
++Eğer bir okuma-yazma işlemi kesişen bloklar üzerinden yapılıyorsa, std c işlevleri bunu belirliyor.
+
++restrict anahtar sözcüğü ile fonksiyon yazıldığında bu "ben bu iki parametrenin kesişen blok kullanmadığına güveniyorum" mesajı veriliyor.
++strcpy standart fonksiyonu da restrict anahtar sözcüğünü kullanmakta yani bununla taşıma yapılırsa undefined behavior olur
+
++Bu taşıma işlemleri strcopy yerine memmove fonksiyonu ile yapılmalı.
+
+
+
+1)B)strcat(char* dest, const char* str)
+---------------------------------------------
++bir yazı sonuna başka yazı eklemek için kullanılıyor.
+
+
+
+                                                      2)  YAZILARIN KARŞILAŞTIRILMASI ( strcmp fonksiyonu )
+                                             -------------------------------------------------------------------
++bool isequal(string s1,string s2)  şeklinde iki stringin eşitliği öğreniliyor.(bu 1.tarz)
+ Bunu hep kullanıyoruz zaten.
+
++int compare(date x, date y); şeklinde karşılaştırma fonksiyonu olduğunda
+ if(x>y) ise retval>0 döndürecek(retval pozitif değer alır)
+ if(x<y) ise retval<0 döndürecek (retval negatif değer alır)                                    
+ if(x==y) ise retval==0 döndürecek(retval 0 değeri alır) 
+ + İŞTE BU DA İKİNCİ TARZ OLUYOR.
+
++Bu şekilde(2.tarz) "2 stringi karşılaştıran" standart c fonksiyonu adı "strcmp"'dir. 
++iki array'in eşitliğini sorgulamak için;
+      -if(strcmp(s1,s2) == 0); şeklinde bir kontrol deyimi yazılabilir
