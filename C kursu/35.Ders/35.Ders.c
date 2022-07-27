@@ -368,4 +368,189 @@ int main(){
 
 
 
-//              ÖRNEK       -       13       -
+//              ÖRNEK       -       13       -  strcmp test kodu - lexicographical campare
+/*
+int main(){
+
+
+  char s1[SIZE],s2[SIZE];
+  int result;
+
+  printf("iki yazi girin: ");
+  scanf("%s%s",&s1,&s2);
+  result=strcmp(s1,s2);
+
+  if(result>0){
+      printf(" %s  > %s ",s1,s2);
+  }
+
+  else if (result<0){
+      printf(" %s  > %s ",s2,s1);
+  }
+  
+  else
+      printf(" %s  ==   %s ",s1,s2);
+}
+*/
+
+
+
+
+//              ÖRNEK       -       14       -  strcmp kod yazımı
+/*
+int my_strcmp(const char* pleft,const char* pright){
+
+
+  while (*pleft == *pright){
+    if (*pleft=='\0'){
+      return 0;
+    }
+    pleft++;
+    pright++;
+  }
+  
+  return *pleft - *pright ;
+
+}
+
+int main(){
+
+  char s1[SIZE],s2[SIZE];
+  int result;
+
+  printf("iki yazi girin: ");
+  scanf("%s%s",&s1,&s2);
+  result=my_strcmp(s1,s2);
+
+  if(result>0){
+      printf(" %s  > %s ",s1,s2);
+  }
+
+  else if (result<0){
+      printf(" %s  > %s ",s2,s1);
+  }
+  
+  else
+      printf(" %s  ==   %s ",s1,s2);
+}
+*/
+
+
+
+
+
+//              ÖRNEK       -       15       - is_at_end fonksiyon kodu yazımı(benim yazdığım)
+//bir yazının sonunda belirli bir yazı var mı diye sorgulama
+/*
+int is_at_end(const char* p1, const char* p2){
+
+  int p1_len=strlen(p1);
+  int p2_len=strlen(p2);
+
+  
+  return strcmp(&p1[p1_len]-p2_len,p2);
+
+}
+
+int main(){
+
+  char s1[SIZE],s2[SIZE];
+
+  printf("birinci yaziyi girin: ");
+  scanf("%s",&s1);
+
+  printf("ikinci yaziyi girin: ");
+  scanf("%s",&s2);
+
+
+  if(!is_at_end(s1,s2))
+    printf("evet var");
+  else
+    printf("hayir yok");
+}
+*/
+
+
+
+
+//              ÖRNEK       -       16       - is_at_end fonksiyon kodu yazımı(necati hocanın yazdığım)
+/*
+int is_at_end(const char* p1, const char* p2){
+
+  size_t len_p1 = strlen(p1);
+  size_t len_p2 = strlen(p2);
+
+  if(len_p2>len_p1)//undefined behavior olmaması için kontrol ettik
+    return 0;
+
+  return !strcmp(p1 + len_p1 -len_p2,p2);
+
+}
+
+int main(){
+
+  char s1[SIZE],s2[SIZE];
+
+  printf("birinci yaziyi girin: ");
+  scanf("%s",&s1);
+
+  printf("ikinci yaziyi girin: ");
+  scanf("%s",&s2);
+
+
+  if(is_at_end(s1,s2))
+    printf("evet var");
+  else
+    printf("hayir yok");
+}
+*/
+
+
+
+
+//              ÖRNEK       -       17       - hatalı kod bakilacak
+
+char *str_prepend(char* p_anayazi,const char* p_eklenecek){
+
+  size_t eklenecek_len=strlen(p_eklenecek);
+  printf("p_eklenecek = %d\n",p_eklenecek);
+
+  int count=0;
+  char* p_anayazi_new=p_anayazi+eklenecek_len;
+
+  printf("eklenecek yazi uzunlugu=%d\n\n",eklenecek_len);
+  printf("p_anayazi = %d, p_anayazi_new = %d \n\n",p_anayazi, p_anayazi_new);
+  
+  while (eklenecek_len != count){
+
+      *p_anayazi_new++=*p_anayazi++;
+      count++;
+  }
+  *p_anayazi_new='\0';
+
+  printf("p_anayazi = %d\n",p_anayazi);
+  printf("p_anayazi_new = %d\n",p_anayazi_new);
+  while (*p_eklenecek){
+    *p_anayazi++=*p_eklenecek++;
+  }
+  
+  //printf("p_eklenecek = %d\n",p_eklenecek);
+  //printf("p_anayazi = %d\n",p_anayazi);
+  //printf("p_anayazi_new = %d\n",p_anayazi_new);
+}
+
+int main(){
+
+  char ana_yazi[SIZE];
+  char eklenecek_yazi[SIZE];
+
+  printf("ana yaziyi girin: ");
+  sgets(ana_yazi);
+
+  printf("eklenecek yaziyi girin: ");
+  sgets(eklenecek_yazi);
+
+  
+  str_prepend(ana_yazi,eklenecek_yazi);
+  printf("%s\n",ana_yazi);
+}

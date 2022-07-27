@@ -26,30 +26,30 @@
 +++---+++---++++---++++++---+++---++++---++++++---+++---++++---+++---+++++----++++--+++----+++-----+++++++++
 
 
-1)A)strcpy(char* dest, const char* str)   (örnek-7)
--------------
-+psource adresindeki yazıyı pdest adresine kopyalamanın en kolay idiomatik yolu:
-      while(*pdest++ = *psource++); yapısıdır.
-+C99 standartları ile birlikte fonksiyon parametresi değişmiştir. restrict anahtar sözcüğü eklenmiştir.(örnek-8)
- char *strcpy( char *restrict dest, const char *restrict str)
+      1)A)strcpy(char* dest, const char* str)   (örnek-7)
+      -------------
+      +psource adresindeki yazıyı pdest adresine kopyalamanın en kolay idiomatik yolu:
+            while(*pdest++ = *psource++); yapısıdır.
+      +C99 standartları ile birlikte fonksiyon parametresi değişmiştir. restrict anahtar sözcüğü eklenmiştir.(örnek-8)
+      char *strcpy( char *restrict dest, const char *restrict str)
 
------------------------------------------------------------------------------------------------------------
-"NOT":
--overlapped blocks(kesişen bloklar):  2 bellek bloğu var ve bunların "kesişim alanı" var. Böyle bloklara "overlapped blocks" denir.
-------------------------------------------------------------------------------------------------------------
+      -----------------------------------------------------------------------------------------------------------
+      "NOT":
+      -overlapped blocks(kesişen bloklar):  2 bellek bloğu var ve bunların "kesişim alanı" var. Böyle bloklara "overlapped blocks" denir.
+      ------------------------------------------------------------------------------------------------------------
 
-+Eğer bir okuma-yazma işlemi kesişen bloklar üzerinden yapılıyorsa, std c işlevleri bunu belirliyor.
+      +Eğer bir okuma-yazma işlemi kesişen bloklar üzerinden yapılıyorsa, std c işlevleri bunu belirliyor.
 
-+restrict anahtar sözcüğü ile fonksiyon yazıldığında bu "ben bu iki parametrenin kesişen blok kullanmadığına güveniyorum" mesajı veriliyor.
-+strcpy standart fonksiyonu da restrict anahtar sözcüğünü kullanmakta yani bununla taşıma yapılırsa undefined behavior olur
+      +restrict anahtar sözcüğü ile fonksiyon yazıldığında bu "ben bu iki parametrenin kesişen blok kullanmadığına güveniyorum" mesajı veriliyor.
+      +strcpy standart fonksiyonu da restrict anahtar sözcüğünü kullanmakta yani bununla taşıma yapılırsa undefined behavior olur
 
-+Bu taşıma işlemleri strcopy yerine memmove fonksiyonu ile yapılmalı.
+      +Bu taşıma işlemleri strcopy yerine memmove fonksiyonu ile yapılmalı.
 
 
 
-1)B)strcat(char* dest, const char* str)
----------------------------------------------
-+bir yazı sonuna başka yazı eklemek için kullanılıyor.
+      1)B)strcat(char* dest, const char* str)
+      ---------------------------------------------
+      +bir yazı sonuna başka yazı eklemek için kullanılıyor.
 
 
 
@@ -66,4 +66,35 @@
 
 +Bu şekilde(2.tarz) "2 stringi karşılaştıran" standart c fonksiyonu adı "strcmp"'dir. 
 +iki array'in eşitliğini sorgulamak için;
-      -if(strcmp(s1,s2) == 0); şeklinde bir kontrol deyimi yazılabilir
+      -if(strcmp(s1,s2) == 0); şeklinde bir kontrol deyimi yazılabilir 
+
+      2)A)lexicographical campare
+      -------------------------------
+      +İki string değerin bir birinden büyüklük küçüklüğü nedir? Bu durumda kullanılan algoritmaya "lexicographical campare" algoritmasıdır.
+      +Bu algoritmada "eşitlik durumu" sadece "boyut ve karşılıklı değerlerin aynı" olmasıyla mümkün.
+      +Bu algoritmada Büyüklük-Küçüklük "boyut ile alakalı değil".
+      +Değerler karşılaştırılıyor, 
+            Örneğin sayılar için;
+            2  4  5  3  4
+            2  4  5  11         - Bu ikisi karşılaştırıldığında alttaki büyük olur çünkü 11>3.
+
+            2  4  5  3  3
+            2  4  5  3          - Bu ikisi karşılaştırıldığında üstteki büyük olur. Çünkü üstteki,altaki bitene kadar aynı sonrasında ise devam ediyor.
+
+
+            Örneğin yazılar için;
+
+            cumhuriyet
+            ok                  - Bu ikisi karşılaştırıldığında ok büyük çünkü. o>c. onun ascii'deki tam sayı karşılığı cden büyük.
+            
+            ok
+            okan                - okan>ok.
+
+            masa
+            MASA                - masa>MASA. Çünkü küçük harflerin ascii kodu büyük harflerinkinden büyüktür.
+
+      -Buradan şu anlaşılabilir: "lexicographical campare" sözlük mantığı ile karşılaştırma yapar.
+
+      Not: Container/collecition: aynı türden öğeleri bir arada tutan veri yapıları.
+
+
