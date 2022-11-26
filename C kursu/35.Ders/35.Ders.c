@@ -513,30 +513,30 @@ int main(){
 char *str_prepend(char* p_anayazi,const char* p_eklenecek){
 
   size_t eklenecek_len=strlen(p_eklenecek);
-  printf("p_eklenecek = %d\n",p_eklenecek);
+  size_t anayazi_len=strlen(p_anayazi);
 
-  int count=0;
-  char* p_anayazi_new=p_anayazi+eklenecek_len;
+  printf("p_eklenecek = %d\n",p_eklenecek);
+  
+  char* p_anayazi_new=(p_anayazi)
+  +eklenecek_len;
 
   printf("eklenecek yazi uzunlugu=%d\n\n",eklenecek_len);
   printf("p_anayazi = %d, p_anayazi_new = %d \n\n",p_anayazi, p_anayazi_new);
-  
-  while (eklenecek_len != count){
+  char* ptemp=p_anayazi;
 
-      *p_anayazi_new++=*p_anayazi++;
-      count++;
+  for(int i=0; i<anayazi_len+1;++i){
+
+      *p_anayazi_new++=*ptemp++;
+      printf("p_anayazi = %d\n",ptemp);
+      printf("p_anayazi_new = %d\n",p_anayazi_new);
+
   }
   *p_anayazi_new='\0';
 
-  printf("p_anayazi = %d\n",p_anayazi);
-  printf("p_anayazi_new = %d\n",p_anayazi_new);
   while (*p_eklenecek){
     *p_anayazi++=*p_eklenecek++;
   }
   
-  //printf("p_eklenecek = %d\n",p_eklenecek);
-  //printf("p_anayazi = %d\n",p_anayazi);
-  //printf("p_anayazi_new = %d\n",p_anayazi_new);
 }
 
 int main(){
@@ -544,13 +544,41 @@ int main(){
   char ana_yazi[SIZE];
   char eklenecek_yazi[SIZE];
 
-  printf("ana yaziyi girin: ");
-  sgets(ana_yazi);
-
-  printf("eklenecek yaziyi girin: ");
-  sgets(eklenecek_yazi);
-
-  
+  printf("ana yaziyi ve eklenecek yaziyi girin: ");
+  scanf("%s%s", ana_yazi,eklenecek_yazi);
+ 
   str_prepend(ana_yazi,eklenecek_yazi);
   printf("%s\n",ana_yazi);
 }
+
+
+
+//              ÖRNEK       -       18       - strrev kodu
+/*
+char *strrev(char *p){
+
+  size_t str_len=strlen(p);
+  
+  for (size_t i = 0; i < str_len/2; ++i){
+    char temp=p[i];
+    
+    p[i]=p[str_len-1-i];
+    p[str_len-1-i]=temp;
+
+  }
+  
+  return p;
+}
+
+int main(){
+
+  char str[SIZE];
+
+  printf("bir yazi girin: ");
+  sgets(str);
+
+  printf("(%s)\n", str);
+  strrev(str);
+  printf("(%s)\n", str); 
+}
+*/
